@@ -1,10 +1,8 @@
 // Importeer het npm package Express (uit de door npm aangemaakte node_modules map)
 // Deze package is geïnstalleerd via `npm install`, en staat als 'dependency' in package.json
 import express from 'express'
-import { exec } from 'node:child_process'
-import fs from 'fs';
-import FormData from 'form-data';
 import multer from 'multer';
+import fs from 'node:fs';
 // Importeer de Liquid package (ook als dependency via npm geïnstalleerd)
 import { Liquid } from 'liquidjs';
 
@@ -40,40 +38,56 @@ app.post('/upload', upload.single('file'), async (req, res) => {
     console.log(file);
   try {
     // 1. Upload bestand naar Directus /files endpoint
-    exec('curl -F "file=@/Users/dylannierop/Documents/github/proof-of-concept/uploads/' + file.filename + ';filename=' + file.originalname + ';type=' + file.mimetype + '" https://fdnd-agency.directus.app/files', async function(err, stdout) {
-        console.log(stdout);
-        const uploadData = JSON.parse(stdout)
-        const fileId = uploadData.data.id;
-        console.log(uploadData);
-        // 2. Maak record aan met het bestand als cover
-        const record = {
-        full_name: 'Lisanne Bronkhorst',
-        status: 'draft',
-        cover: fileId,
-        };
+    const form = new FormData();
+    form.append('file', fs.createReadStream(file.path), {
+      filename: file.originalname,
+      contentType: file.mimetype,
+    });
+    console.log(form.getHeaders())
+    const uploadResponse = await fetch('https://fdnd-agency.directus.app/files', {
+      method: 'POST',
+      headers: {
+        ...form.getHeaders(),
+      },
+      body: form,
+    });
 
-        const recordResponse = await fetch('https://fdnd-agency.directus.app/items/mh_users', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(record),
-        });
+    if (!uploadResponse.ok) {
+      throw new Error(`Upload failed with status ${uploadResponse.status}`);
+    }
 
-        if (!recordResponse.ok) {
-        throw new Error(`Record creation failed with status ${recordResponse.status}`);
-        }
+    const uploadData = await uploadResponse.json();
+    const fileId = uploadData.data.id;
 
-        const recordData = await recordResponse.json();
+    // 2. Maak record aan met het bestand als cover
+    const record = {
+      full_name: 'Lisanne Bronkhorst',
+      status: 'draft',
+      cover: fileId,
+    };
 
-        // Opruimen van tijdelijk bestand
-        fs.unlinkSync(file.path);
+    const recordResponse = await fetch('https://fdnd-agency.directus.app/items/mh_users', {
+      method: 'POST',
+      headers: {
+        Authorization: 'Bearer YOUR_TOKEN_HERE',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(record),
+    });
 
-        res.json({
-        message: 'Upload en record succesvol',
-        record: recordData,
-        });
-    })
+    if (!recordResponse.ok) {
+      throw new Error(`Record creation failed with status ${recordResponse.status}`);
+    }
+
+    const recordData = await recordResponse.json();
+
+    // Opruimen van tijdelijk bestand
+    fs.unlinkSync(file.path);
+
+    res.json({
+      message: 'Upload en record succesvol',
+      record: recordData,
+    });
   } catch (error) {
     res.status(500).json({ error: 'Upload mislukt', details: error.message });
   }
