@@ -2,7 +2,7 @@
 // Deze package is geïnstalleerd via `npm install`, en staat als 'dependency' in package.json
 import express from 'express'
 import multer from 'multer';
-import fs from 'node:fs';
+import fs from 'fs/promises';
 // Importeer de Liquid package (ook als dependency via npm geïnstalleerd)
 import { Liquid } from 'liquidjs';
 
@@ -35,31 +35,40 @@ const upload = multer({ dest: 'uploads/' });
 app.post('/upload', upload.single('file'), async (req, res) => {
   const file = req.file;
   if (!file) return res.status(400).json({ error: 'Geen bestand ontvangen' });
-    console.log(file);
+
   try {
-    // 1. Upload bestand naar Directus /files endpoint
-    const form = new FormData();
-    form.append('file', fs.createReadStream(file.path), {
-      filename: file.originalname,
-      contentType: file.mimetype,
-    });
-    console.log(form.getHeaders())
+    const fileBuffer = await fs.readFile(file.path);
+    const boundary = '----WebKitFormBoundary' + Math.random().toString(36).substring(2);
+
+    const multipartBody =
+      `--${boundary}\r\n` +
+      `Content-Disposition: form-data; name="file"; filename="${file.originalname}"\r\n` +
+      `Content-Type: ${file.mimetype}\r\n\r\n` +
+      fileBuffer +
+      `\r\n--${boundary}--\r\n`;
+
     const uploadResponse = await fetch('https://fdnd-agency.directus.app/files', {
       method: 'POST',
       headers: {
-        ...form.getHeaders(),
+        'Content-Type': `multipart/form-data; boundary=${boundary}`,
+        // 'Authorization': 'Bearer YOUR_TOKEN_HERE', // indien nodig
       },
-      body: form,
+      body: Buffer.concat([
+        Buffer.from(multipartBody.split(fileBuffer)[0], 'utf8'),
+        fileBuffer,
+        Buffer.from(multipartBody.split(fileBuffer)[1], 'utf8')
+      ]),
     });
 
     if (!uploadResponse.ok) {
-      throw new Error(`Upload failed with status ${uploadResponse.status}`);
+      const text = await uploadResponse.text();
+      throw new Error(`Upload failed: ${uploadResponse.status} - ${text}`);
     }
 
-    const uploadData = await uploadResponse.json();
-    const fileId = uploadData.data.id;
+    const uploaded = await uploadResponse.json();
+    const fileId = uploaded.data.id;
 
-    // 2. Maak record aan met het bestand als cover
+    // 2. Maak een record aan
     const record = {
       full_name: 'Lisanne Bronkhorst',
       status: 'draft',
@@ -69,27 +78,28 @@ app.post('/upload', upload.single('file'), async (req, res) => {
     const recordResponse = await fetch('https://fdnd-agency.directus.app/items/mh_users', {
       method: 'POST',
       headers: {
-        Authorization: 'Bearer YOUR_TOKEN_HERE',
         'Content-Type': 'application/json',
+        // 'Authorization': 'Bearer YOUR_TOKEN_HERE',
       },
       body: JSON.stringify(record),
     });
 
     if (!recordResponse.ok) {
-      throw new Error(`Record creation failed with status ${recordResponse.status}`);
+      const text = await recordResponse.text();
+      throw new Error(`Record creation failed: ${recordResponse.status} - ${text}`);
     }
 
-    const recordData = await recordResponse.json();
-
-    // Opruimen van tijdelijk bestand
-    fs.unlinkSync(file.path);
+    const recordResult = await recordResponse.json();
+    await fs.unlink(file.path);
 
     res.json({
       message: 'Upload en record succesvol',
-      record: recordData,
+      record: recordResult,
     });
-  } catch (error) {
-    res.status(500).json({ error: 'Upload mislukt', details: error.message });
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Upload mislukt', details: err.message });
   }
 });
 // Stel het poortnummer in waar Express op moet gaan luisteren
