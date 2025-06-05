@@ -1,0 +1,312 @@
+[
+  {
+    links: {
+      self: 'http://www.rijksmuseum.nl/api/nl/collection/SK-A-447',
+      web: 'http://www.rijksmuseum.nl/nl/collectie/SK-A-447'
+    },
+    id: 'nl-SK-A-447',
+    objectNumber: 'SK-A-447',
+    title: 'De zielenvisserij',
+    hasImage: true,
+    principalOrFirstMaker: 'Adriaen Pietersz. van de Venne',
+    longTitle: 'De zielenvisserij, Adriaen Pietersz. van de Venne, 1614',
+    showImage: true,
+    permitDownload: true,
+    webImage: {
+      guid: '1ccf72b5-5db6-43fc-b297-3465edf23a77',
+      offsetPercentageX: 0,
+      offsetPercentageY: 0,
+      width: 6344,
+      height: 3296,
+      url: 'https://lh3.googleusercontent.com/TEtv4BfucIDtINHirqpa-VHlo4x8oHWZxBPzH60g0aq3LKsfw2QKTX9TGwqeUEnSTQLdKoA0LtxkYUtRkLGRkjem0uQvJV5e25rvj4ESKg=s0'
+    },
+    headerImage: {
+      guid: 'dd63c518-2e64-495e-824f-440f1b9fb5b0',
+      offsetPercentageX: 0,
+      offsetPercentageY: 0,
+      width: 1920,
+      height: 460,
+      url: 'https://lh3.googleusercontent.com/00hSErEGrmF9YFRc5P39qTk2Cst3ifgRY_9zVVdUP78FJkyd0M9BMTzM4wrEFjCMhRgB4uCiyTBp3gQ7j2S1JGszr4QNe22o6O-9gwxYsQ=s0'
+    },
+    productionPlaces: []
+  },
+  {
+    links: {
+      self: 'http://www.rijksmuseum.nl/api/nl/collection/BK-1976-75',
+      web: 'http://www.rijksmuseum.nl/nl/collectie/BK-1976-75'
+    },
+    id: 'nl-BK-1976-75',
+    objectNumber: 'BK-1976-75',
+    title: 'Kan met deksel',
+    hasImage: true,
+    principalOrFirstMaker: 'Adam van Vianen (I)',
+    longTitle: 'Kan met deksel, Adam van Vianen (I), 1614',
+    showImage: true,
+    permitDownload: true,
+    webImage: {
+      guid: 'b7593955-22ca-4628-89f9-4f11d4f245d2',
+      offsetPercentageX: 0,
+      offsetPercentageY: 0,
+      width: 5281,
+      height: 7403,
+      url: 'https://lh3.googleusercontent.com/Ovyo5Lk0AJGQtOvaFAc3ftMiDwPgLlEhl70T93W7s5QtNm5I33t4vMsA2JJ10i5srucjNOdzjQlvyyCKf_DGKUdEirI=s0'
+    },
+    headerImage: {
+      guid: 'f1af8da6-16f4-4357-9936-e1ed2a02928c',
+      offsetPercentageX: 0,
+      offsetPercentageY: 0,
+      width: 1920,
+      height: 460,
+      url: 'https://lh3.googleusercontent.com/0DCTJOH0oyRfYZpAjbrwz4NY0LGbjYzmSwZ6Cu-VXoULvXhjrZOi6ABJUwOOXfF1qhDocyiV2yK-dOAs9XcID2o0Ibc=s0'
+    },
+    productionPlaces: [ 'Utrecht' ]
+  },
+  {
+    links: {
+      self: 'http://www.rijksmuseum.nl/api/nl/collection/SK-C-1368',
+      web: 'http://www.rijksmuseum.nl/nl/collectie/SK-C-1368'
+    },
+    id: 'nl-SK-C-1368',
+    objectNumber: 'SK-C-1368',
+    title: 'Giuliano & Francesco Giamberti da Sangallo Piero di Cosimo (1462–1522)',
+    hasImage: true,
+    principalOrFirstMaker: 'Piero di Cosimo',
+    longTitle: 'Giuliano & Francesco Giamberti da Sangallo Piero di Cosimo (1462–1522), Piero di Cosimo, 1482 - 1485',
+    showImage: true,
+    permitDownload: true,
+    webImage: {
+      guid: '15563bd2-2fde-4b91-9984-ba6c6b166277',
+      offsetPercentageX: 0,
+      offsetPercentageY: 0,
+      width: 2602,
+      height: 3752,
+      url: 'https://lh3.googleusercontent.com/N2m90mImdcoLacUybb_rxcktTwtr0LFhtuzxbSE9elIhElF6jpWngx96_uZ0L1TGNof5pNt4n_Ygb4KYlPTpA9o6788=s0'
+    },
+    headerImage: {
+      guid: '76249f29-b230-41ac-aa38-1dcb8476b614',
+      offsetPercentageX: 0,
+      offsetPercentageY: 0,
+      width: 1920,
+      height: 460,
+      url: 'https://lh3.googleusercontent.com/F0vBT6rGd8T1kb6oMdGZKHaGIZCHg3-CbL24iyZodWm55-GKptRyXg4BB-cf3FvS634hwjR30RwoHdQZ9YuSexM8QxA=s0'
+    },
+    productionPlaces: [ 'Florence' ]
+  },
+  {
+    links: {
+      self: 'http://www.rijksmuseum.nl/api/nl/collection/SK-C-5',
+      web: 'http://www.rijksmuseum.nl/nl/collectie/SK-C-5'
+    },
+    id: 'nl-SK-C-5',
+    objectNumber: 'SK-C-5',
+    title: 'De Nachtwacht',
+    hasImage: true,
+    principalOrFirstMaker: 'Rembrandt van Rijn',
+    longTitle: 'De Nachtwacht, Rembrandt van Rijn, 1642',
+    showImage: true,
+    permitDownload: true,
+    webImage: {
+      guid: 'bbd1fae8-4023-4859-8ed1-d38616aec96c',
+      offsetPercentageX: 0,
+      offsetPercentageY: 1,
+      width: 14645,
+      height: 12158,
+      url: 'https://lh3.googleusercontent.com/SsEIJWka3_cYRXXSE8VD3XNOgtOxoZhqW1uB6UFj78eg8gq3G4jAqL4Z_5KwA12aD7Leqp27F653aBkYkRBkEQyeKxfaZPyDx0O8CzWg=s0'
+    },
+    headerImage: {
+      guid: '29a2a516-f1d2-4713-9cbd-7a4458026057',
+      offsetPercentageX: 0,
+      offsetPercentageY: 0,
+      width: 1920,
+      height: 460,
+      url: 'https://lh3.googleusercontent.com/nAHNYM604vhPa1hbE_hBJw55JI01-ls0zCwHwvDEES38PpGyGHMgG_vaigVWSuK8GFkaxfn2Dmevw_Nmujn5dKW3jItgS6QaSI8VIsiH=s0'
+    },
+    productionPlaces: [ 'Amsterdam' ]
+  },
+  {
+    links: {
+      self: 'http://www.rijksmuseum.nl/api/nl/collection/SK-C-597',
+      web: 'http://www.rijksmuseum.nl/nl/collectie/SK-C-597'
+    },
+    id: 'nl-SK-C-597',
+    objectNumber: 'SK-C-597',
+    title: 'Portret van een vrouw, waarschijnlijk Maria Trip',
+    hasImage: true,
+    principalOrFirstMaker: 'Rembrandt van Rijn',
+    longTitle: 'Portret van een vrouw, waarschijnlijk Maria Trip, Rembrandt van Rijn, 1639',
+    showImage: true,
+    permitDownload: true,
+    webImage: {
+      guid: '165d03bb-95e8-4447-a911-865f1bd201d6',
+      offsetPercentageX: 0,
+      offsetPercentageY: 0,
+      width: 4351,
+      height: 5754,
+      url: 'https://lh3.googleusercontent.com/AyiKhdEWJ7XmtPXQbRg_kWqKn6mCV07bsuUB01hJHjVVP-ZQFmzjTWt7JIWiQFZbb9l5tKFhVOspmco4lMwqwWImfgg=s0'
+    },
+    headerImage: {
+      guid: 'f0270e59-baca-4429-ba00-d6c37b9ad00f',
+      offsetPercentageX: 0,
+      offsetPercentageY: 0,
+      width: 1920,
+      height: 460,
+      url: 'https://lh3.googleusercontent.com/MonorlaCKkTjeFrTBQyCb7kfmq8K--aWrThge7MsTItJxO_cw-8WbwgmTm0jTt-qfaFfnwa1qNEnsGYVHMPmCGmb0Pje=s0'
+    },
+    productionPlaces: []
+  },
+  {
+    links: {
+      self: 'http://www.rijksmuseum.nl/api/nl/collection/SK-C-211',
+      web: 'http://www.rijksmuseum.nl/nl/collectie/SK-C-211'
+    },
+    id: 'nl-SK-C-211',
+    objectNumber: 'SK-C-211',
+    title: 'De molen bij Wijk bij Duurstede',
+    hasImage: true,
+    principalOrFirstMaker: 'Jacob Isaacksz van Ruisdael',
+    longTitle: 'De molen bij Wijk bij Duurstede, Jacob Isaacksz van Ruisdael, ca. 1668 - ca. 1670',
+    showImage: true,
+    permitDownload: true,
+    webImage: {
+      guid: 'bbb79014-8ebd-4922-ad48-fd4ee8c61bd2',
+      offsetPercentageX: 0,
+      offsetPercentageY: 0,
+      width: 7021,
+      height: 5952,
+      url: 'https://lh3.googleusercontent.com/3EDrQy1jW6akN2k8eAeCECHJ1FmvM1f2pb9a-de51ErcQcghh7cbpzFIh-QYdcGfpi3FjxH1AP6C_FvPNR-I9n8I4No=s0'
+    },
+    headerImage: {
+      guid: 'a47bcb3d-ce7e-42f4-a7b9-e9f6efcc397d',
+      offsetPercentageX: 0,
+      offsetPercentageY: 0,
+      width: 1920,
+      height: 460,
+      url: 'https://lh3.googleusercontent.com/9JwJBbWxRi8Bhvjm3IDfWNr_u-NbZ3ReOXWJ-WKRHgONrACjGDxQi4I4scIvqVOaPTEyfA0HqPRwaAlmauq0EKlc9wY=s0'
+    },
+    productionPlaces: []
+  },
+  {
+    links: {
+      self: 'http://www.rijksmuseum.nl/api/nl/collection/SK-C-1367',
+      web: 'http://www.rijksmuseum.nl/nl/collectie/SK-C-1367'
+    },
+    id: 'nl-SK-C-1367',
+    objectNumber: 'SK-C-1367',
+    title: 'Portretten van Giuliano en Francesco Giamberti da Sangallo',
+    hasImage: true,
+    principalOrFirstMaker: 'Piero di Cosimo',
+    longTitle: 'Portretten van Giuliano en Francesco Giamberti da Sangallo, Piero di Cosimo, 1482 - 1485',
+    showImage: true,
+    permitDownload: true,
+    webImage: {
+      guid: '277544ba-1a56-4492-84ee-3206ac4f24be',
+      offsetPercentageX: 0,
+      offsetPercentageY: 0,
+      width: 6278,
+      height: 4413,
+      url: 'https://lh3.googleusercontent.com/x9NFmu-RbZ_9M5BK_hOzQRdVj4pu7p--y_IYwDK46lDPzQtTIO9AlBV_ObgQiY7GeWE0ZfNjMSyrCWgnwL4MCasQZQ=s0'
+    },
+    headerImage: {
+      guid: '7fb8102f-3c26-4150-92a0-bdc5a67f123a',
+      offsetPercentageX: 0,
+      offsetPercentageY: 0,
+      width: 1920,
+      height: 460,
+      url: 'https://lh3.googleusercontent.com/hHPZI5KMVFhS-tuGtcoo-WR0VMACT_7iypmXi9gCY2Gwg0BIK6irZN5GCihU7dcTskM1rEFIKs26M6S1W_oEzun0iR0I=s0'
+    },
+    productionPlaces: [ 'Florence' ]
+  },
+  {
+    links: {
+      self: 'http://www.rijksmuseum.nl/api/nl/collection/SK-A-372',
+      web: 'http://www.rijksmuseum.nl/nl/collectie/SK-A-372'
+    },
+    id: 'nl-SK-A-372',
+    objectNumber: 'SK-A-372',
+    title: 'Maria Magdalena',
+    hasImage: true,
+    principalOrFirstMaker: 'Jan van Scorel',
+    longTitle: 'Maria Magdalena, Jan van Scorel, ca. 1530',
+    showImage: true,
+    permitDownload: true,
+    webImage: {
+      guid: 'f1cda91e-4d37-4056-8979-028c4cd3da49',
+      offsetPercentageX: 0,
+      offsetPercentageY: 0,
+      width: 5186,
+      height: 4495,
+      url: 'https://lh3.googleusercontent.com/moxL3z7zz5j_5gQCgvRGcmLD-RDhVgZvA2NGREYgkLTkYUbGa4Ts-57UaQ4ilN38xWX6w_gb_eU6hkMZcC-wfMg5NQ=s0'
+    },
+    headerImage: {
+      guid: '6a9a1b0d-f2c2-45b0-8df4-e908a6af5eee',
+      offsetPercentageX: 0,
+      offsetPercentageY: 0,
+      width: 1920,
+      height: 460,
+      url: 'https://lh3.googleusercontent.com/krUs6F8pg2YHqhNKOR1MiQs1lemgNlfErNtQdZBP4Jc7Re3-e6ae-CPlRFIpPf269-j-ze8sa_08bImIoebjCySGawM=s0'
+    },
+    productionPlaces: [ '? Haarlem' ]
+  },
+  {
+    links: {
+      self: 'http://www.rijksmuseum.nl/api/nl/collection/SK-C-6',
+      web: 'http://www.rijksmuseum.nl/nl/collectie/SK-C-6'
+    },
+    id: 'nl-SK-C-6',
+    objectNumber: 'SK-C-6',
+    title: 'De waardijns van het Amsterdamse lakenbereidersgilde, bekend als ‘De Staalmeesters’',
+    hasImage: true,
+    principalOrFirstMaker: 'Rembrandt van Rijn',
+    longTitle: 'De waardijns van het Amsterdamse lakenbereidersgilde, bekend als ‘De Staalmeesters’, Rembrandt van Rijn, 1662',
+    showImage: true,
+    permitDownload: true,
+    webImage: {
+      guid: '2c1ac367-9b11-4266-bb08-eea14ca0bb76',
+      offsetPercentageX: 0,
+      offsetPercentageY: 0,
+      width: 10880,
+      height: 7372,
+      url: 'https://lh3.googleusercontent.com/gShVRyvLLbwVB8jeIPghCXgr96wxTHaM4zqfmxIWRsUpMhMn38PwuUU13o1mXQzLMt5HFqX761u8Tgo4L_JG1XLATvw=s0'
+    },
+    headerImage: {
+      guid: '5f71570b-21d2-4f00-9219-edb93137110c',
+      offsetPercentageX: 0,
+      offsetPercentageY: 0,
+      width: 1920,
+      height: 460,
+      url: 'https://lh3.googleusercontent.com/8vtyRTsJdGXuZhnHl5wF6vBgDNInw3q56DFYYr0Rzm1JJYNRl2iSIC30d_erXkTe_Yv8uJq1ZL56zFrXUpTFJrBDcbE=s0'
+    },
+    productionPlaces: []
+  },
+  {
+    links: {
+      self: 'http://www.rijksmuseum.nl/api/nl/collection/SK-A-4100',
+      web: 'http://www.rijksmuseum.nl/nl/collectie/SK-A-4100'
+    },
+    id: 'nl-SK-A-4100',
+    objectNumber: 'SK-A-4100',
+    title: 'De kunstgalerij van Jan Gildemeester Jansz',
+    hasImage: true,
+    principalOrFirstMaker: 'Adriaan de Lelie',
+    longTitle: 'De kunstgalerij van Jan Gildemeester Jansz, Adriaan de Lelie, 1794 - 1795',
+    showImage: true,
+    permitDownload: true,
+    webImage: {
+      guid: 'c3a05f6b-4b71-4cfd-ab8d-3c7d79e08ea1',
+      offsetPercentageX: 0,
+      offsetPercentageY: 1,
+      width: 7162,
+      height: 5341,
+      url: 'https://lh3.googleusercontent.com/vkoS9jmZLZWuWH1LNIG3eJUVI6W7XqOUKmFf_lcuB4m1nJydWPXZGggi3XGwmirNj1wLdiO7sH6x5fJ60XJnH2expg=s0'
+    },
+    headerImage: {
+      guid: '36b54f3a-46a6-4c24-b804-ce2b5b86f45a',
+      offsetPercentageX: 0,
+      offsetPercentageY: 0,
+      width: 1920,
+      height: 460,
+      url: 'https://lh3.googleusercontent.com/YjKvOkkf3epcceNunYHLeCrDFYNfADyeWnx_TkKyF1tzWPhotNzQaLztgeyfujmhgLG1LSBUv_oOtGL0bTWmgYxBEw=s0'
+    },
+    productionPlaces: []
+  }
+]

@@ -1,0 +1,150 @@
+@font-face {
+    font-family: RijksText;
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+    src: url("/fonts/Rijksmuseum-Normal.woff2") format("woff2"),
+    url("/fonts/Rijksmuseum-Normal.woff") format("woff");
+  }
+  @font-face {
+    font-family: RijksText;
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+    src: url("/fonts/Rijksmuseum-Bold.woff2") format("woff2"),
+         url("/fonts/Rijksmuseum-Bold.woff") format("woff");
+  }
+  @font-face {
+    font-family: RijksText;
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+    src: url("/fonts/Rijksmuseum-Italic.woff2") format("woff2"),
+         url("/fonts/Rijksmuseum-Italic.woff") format("woff");
+}
+  @font-face {
+    font-family: RijksText;
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+    src: url("/fonts/Rijksmuseum-BoldItalic.woff2") format("woff2"),
+         url("/fonts/Rijksmuseum-BoldItalic.woff") format("woff");
+  }
+  @font-face {
+  font-family: RijksCyrillicText;
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  src: url("/fonts/Rijksmuseum-Normal-ukrainian-cyrillic.woff2") format("woff2"),
+       url("/fonts/Rijksmuseum-Normal-ukrainian-cyrillic.woff") format("woff");
+}
+@font-face {
+  font-family: RijksCyrillicText;
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+  src: url("/fonts/Rijksmuseum-Bold-ukrainian-cyrillic.woff2") format("woff2"),
+       url("/fonts/Rijksmuseum-Bold-ukrainian-cyrillic.woff") format("woff");
+}
+@font-face {
+  font-family: RijksCyrillicText;
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+  src: url("/fonts/Rijksmuseum-Italic-ukrainian-cyrillic.woff2") format("woff2"),
+       url("/fonts/Rijksmuseum-Italic-ukrainian-cyrillic.woff") format("woff");
+}
+@font-face {
+  font-family: RijksCyrillicText;
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+  src: url("/fonts/Rijksmuseum-BoldItalic-ukrainian-cyrillic.woff2") format("woff2"),
+       url("/fonts/Rijksmuseum-BoldItalic-ukrainian-cyrillic.woff") format("woff");
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Stupid Flanders : ) */
+}
+html{
+  font-size: 16px; /* 1rem */
+}
+body{
+/* COLORS */
+  --color-primary-bg: #FCF8F7;
+  --color-primary-text: #56423D;
+  --color-secondary-bg: #2C2926;
+  --color-secondary-text: #FCF8F7;
+  --color-cta: #D55140;
+  --color-cta-secondary: #2C2926;
+  --color-white: #FFF;
+  --color-table-even: #8C665F;
+  --color-table-odd: #D8C9C5;
+
+  /* FONT SIZES */
+  --title-size-l: 2.5rem;    /* 40px */
+  --title-size-m: 2rem;      /* 32px */
+  --title-size-s: 1.5rem;    /* 24px */
+
+  --text-size-l: 1.25rem;    /* 20px */
+  --text-size-m: 1rem;       /* 16px */
+
+  /* FONT WEIGHTS */
+  --font-weight-m: 400;
+  --font-weight-l: 700;
+
+  /* MARGINS & PADDINGS */
+  --margin-size-s: 0.75rem;  /* 12px */
+  --margin-size-m: 1.25rem;  /* 20px */
+  --margin-size-l: 2rem;     /* 32px */
+
+  font-family: RijksText, Arial, sans-serif;
+  color: #56423D;
+  font-weight: 400;
+}
+
+.title-l{
+  font-size: 1.5rem;
+  font-size: var(--title-size-s);
+  @media (min-width: 720px){
+    font-size: 2.5rem;
+    font-size: var(--title-size-l);
+  }
+}
+.title-m{
+  font-size: 1.25rem;
+  font-size: var(--text-size-l);
+  @media (min-width: 720px){
+    font-size: 2rem;
+    font-size: var(--title-size-m);
+  }
+}
+.title-s{
+  font-size: 1.25rem;
+  font-size: var(--text-size-l);
+  @media (min-width: 720px){
+    font-size: 1.5rem;
+    font-size: var(--title-size-s);
+  }
+}
+.text-m{
+  font-size: 1rem;
+  font-size: var(--text-size-m);
+}
+.text-l{
+  font-size: 1rem;
+  font-size: var(--text-size-m);
+  @media (min-width: 720px){
+    font-size: 1.25rem;
+    font-size: var(--text-size-l);
+  }
+}
+.bg-primary{
+  background-color: #FCF8F7;
+  background-color: var(--color-primary-bg);
+}
+.bg-secondary{
+  background-color: #2C2926;
+  background-color: var(--color-secondary-bg);
+}
