@@ -1,4 +1,7 @@
 {% render 'partials/head.liquid' %}
+{% comment %} <link rel="preload" as="image" href="{{ artPieces[0].images.web.url }}">
+<link rel="preload" as="image" href="{{ artPieces[1].images.web.url }}"> {% endcomment %}
+</head>
 <body>
     {% render 'partials/header.liquid' %}
     <main>
@@ -16,16 +19,16 @@
                                 <figcaption class="art-piece--title-wrapper">
                                     <h2 class="title-m art-piece--title">{{artPiece.title}}</h2>
                                 </figcaption>
-                                <picture>
-                                    <source media="(min-width: 720px)" srcset="{{ artPiece.images.web.url }}" />
-                                    <img
-                                        {% if forloop.index > 2 %}
-                                            loading="lazy"
-                                        {% endif %} 
-                                        class="art-piece--image" src="{{ artPiece.images.web.url }}"
-                                        alt="{{artPiece.title}}" width="{{artPiece.images.web.width}}" height="{{artPiece.images.web.height}}"
-                                    >
-                                </picture>
+                                <img
+                                    {% if forloop.index > 2 %}
+                                        loading="lazy"
+                                    {% else %}
+                                        loading= "eager" 
+                                    {% endif %} 
+                                    sizes="(max-width: 720px) 100vw, 500px"
+                                    class="art-piece--image" src="{{ artPiece.images.web.url }}"
+                                    alt="{{artPiece.title}}" width="{{artPiece.images.web.width}}" height="{{artPiece.images.web.height}}"
+                                >
 
                             </figure>
                             <a class="art-piece--readmore" href="/artPiece/{{artPiece.objectNumber}}">
