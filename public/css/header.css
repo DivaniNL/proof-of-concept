@@ -10,9 +10,13 @@ body{
         justify-content: space-between;
         align-items: center;
         .hamburger-open, .hamburger-close{
-            display: block;
+            display: flex;
+            color: var(--color-secondary-text);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             @media (min-width: 720px){
-            display: none !important;
+                display: none !important;
             }
         }
         svg > *{
@@ -31,7 +35,6 @@ body{
             }
             transition: 0.3s ease;
             a.hamburger-open{
-                display: inline-block;
                 position: absolute;
                 top: var(--margin-size-s);
                 right: var(--margin-size-s);
@@ -68,6 +71,19 @@ body{
                     top: 0;
                     height: 100vh;
                     z-index: 1;
+                }
+            }
+        }
+        @supports selector(:has(p)) {
+            overflow: hidden;
+            a.hamburger-close{
+                translate: 0 0;
+                transition: 0.3s ease;
+            }
+            &:has(nav:target){
+                a.hamburger-close{
+                    translate: 150% 0;
+                    
                 }
             }
         }
