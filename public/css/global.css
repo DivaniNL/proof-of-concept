@@ -102,10 +102,17 @@ body{
   font-family: RijksText, Arial, sans-serif;
   color: #56423D;
   font-weight: 400;
+  padding: 0 1.25rem;
+  padding: 0 var(--margin-size-m);
+  @media (min-width: 720px){
+    padding: 0 2rem;
+    padding: 0 var(--margin-size-l);
+  }
 }
 
 .title-l{
   font-size: 1.5rem;
+  text-transform: uppercase;
   font-size: var(--title-size-s);
   @media (min-width: 720px){
     font-size: 2.5rem;
@@ -114,6 +121,7 @@ body{
 }
 .title-m{
   font-size: 1.25rem;
+  text-transform: uppercase;
   font-size: var(--text-size-l);
   @media (min-width: 720px){
     font-size: 2rem;
@@ -140,6 +148,7 @@ body{
     font-size: var(--text-size-l);
   }
 }
+/* BG Classes */
 .bg-primary{
   background-color: #FCF8F7;
   background-color: var(--color-primary-bg);
@@ -147,4 +156,26 @@ body{
 .bg-secondary{
   background-color: #2C2926;
   background-color: var(--color-secondary-bg);
+}
+
+/* Utility responsive */
+.desktop-hidden{
+  @media (min-width: 720px){
+    display: none;
+  }
+}
+.desktop-show{
+  @media (max-width: 720px){
+    display: none;
+  }
+}
+.mobile-hidden{
+  @media (max-width: 720px){
+    display: none;
+  }
+}
+.mobile-show{
+  @media (min-width: 720px){
+    display: none;
+  }
 }
