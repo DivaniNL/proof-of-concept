@@ -5,6 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>270-Rijksmuseum</title>
     <style>
+        /* Style for non nesters */
+        body{
+            background-color: #FCF8F7;
+            color: #56423D;
+        }
+        ul{
+            list-style-type: none;
+            margin: 2rem 0 0 0;
+        }
+        ul li{
+            margin-bottom: .5rem;
+        }
+        ul li:last-child{
+            margin-bottom: 0;
+        }
+        img.art-piece--image{
+            height: auto;
+            width: 100%;
+            max-width: 500px;
+            display: block;
+        }
+        .collection-frame{
+            display: none;
+            height: 0;
+            width: 0;
+            opacity: 0;
+            visibility: hidden;
+        }
+        a{
+            color: #56423D;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .hamburger-open, .hamburger-close{
+            display: none;
+        }
+        .art-piece--readmore{
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 12px;
+            gap: 5px;
+            background-color: #56423D;
+            color: #FCF8F7;
+
+            max-width: 100%;
+            width: 500px;
+        }
+        header{
+            margin-top: 1rem;
+        }
+        header .header-logo--svg{
+            max-width: 100%;
+        }
+        header .header-logo--svg > *{
+            fill: #56423D;
+        }
+        .title-main{
+            margin-top: 2rem;
+        }
 
     </style>
     <script defer>window.TSDAPIKEY = '645c0808-b5fb-4d15-8986-ffb6a267af2d';</script>
@@ -13,5 +72,3 @@
     <link rel="preload" href="/fonts/Rijksmuseum-Normal.woff2" as="font" type="font/woff2" crossorigin="">
     <link rel="preload" href="/fonts/Rijksmuseum-Bold.woff2" as="font" type="font/woff2" crossorigin="">
     <link rel="stylesheet" rel="preload" href="css/style.css">
-   
-</head>

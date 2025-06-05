@@ -1,65 +1,11 @@
 @import url("./global.css"); /* general styles */
-/* Style for non nesters */
-body{
-    background-color: #FCF8F7;
-    color: #56423D;
-}
-ul{
-    list-style-type: none;
-    margin: 2rem 0 0 0;
-}
-ul li{
-    margin-bottom: .5rem;
-}
-ul li:last-child{
-    margin-bottom: 0;
-}
-img.art-piece--image{
-    height: auto;
-width: 100%;
-max-width: 500px;
-    display: block;
-}
-.collection-frame{
-    display: none;
-    height: 0;
-    width: 0;
-    opacity: 0;
-    visibility: hidden;
-}
-a{
-    color: #56423D;
-    font-weight: bold;
-    text-decoration: none;
-}
-.hamburger-open, .hamburger-close{
-    display: none;
-}
-.art-piece--readmore{
-    display: inline-flex;
-    align-items: center;
-    padding: 6px 12px;
-    gap: 5px;
-    background-color: #56423D;
-    color: #FCF8F7;
-
-    max-width: 100%;
-    width: 500px;
-}
-header{
-    margin-top: 1rem;
-}
-header .header-logo--svg{
-    max-width: 100%;
-}
-.title-main{
-    margin-top: 2rem;
-}
-
-/* 
+@import url("./header.css"); /* general styles */
+@import url("./artpieces.css"); /* general styles */
+/*
 frame
 max-height: 100vh; width: 100vw; aspect-ratio: 1220/840;
 
 
 img
 width: 60vw; left: 50%; position: absolute; top: 6.8vw; aspect-ratio: 550 / 365; z-index: -1; translate: -50% 0; */
+

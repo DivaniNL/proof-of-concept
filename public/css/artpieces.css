@@ -1,0 +1,31 @@
+ul.art-pieces{
+    li.art-piece{
+        position: relative;
+        display: block;
+        width: fit-content;
+        figure{
+            position: relative;
+            figcaption.art-piece--title-wrapper{
+                background: var(--color-secondary-bg);
+                color: var(--color-primary-bg);
+                width: 80%;
+                top: 20px;
+                left: 10%;
+                position: absolute;
+                padding: 8px 16px;
+                .art-piece--title{
+                    font-size: 14px;
+                    text-transform: initial;
+                }
+            }
+        }
+        a{
+            span.art-piece--readmore{
+                width: initial;
+                position: absolute;
+                right: 10px;
+                bottom: 10px;
+            }
+        }
+    }
+}
