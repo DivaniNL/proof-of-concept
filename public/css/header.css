@@ -1,6 +1,8 @@
 body{
-    padding: 0 0;
-    position: relative;
+    @supports selector(&) {
+        padding: 0 0;
+        position: relative;
+    }
     header{
         gap: var(--margin-size-s);
         margin-top: 0;
