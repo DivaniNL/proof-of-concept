@@ -26,6 +26,7 @@ app.set('views', './views')
 
 const artPiecesResponse = await fetch('https://www.rijksmuseum.nl/api/nl/collection?key=pWKXy0OF&ps=10');
 const artPiecesResponseJSON = await artPiecesResponse.json();
+
 app.get('/', async function (req, res) {
   res.render('index.liquid', { artPieces: artPiecesResponseJSON.artObjects })
 })
