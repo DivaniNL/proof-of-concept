@@ -109,6 +109,17 @@ section.model-detail figure {
     margin: 0 auto;
     max-width: 750px;
     max-height: 750px;
+    canvas{
+        z-index: 99;
+        height: 500px;
+    }
+    &:has(canvas){
+        height: 500px !important;
+        background: var(--color-cta-secondary);
+        &.debug{
+            z-index: 98;
+        }
+    }
 }
 
 section.model-detail figure img.big-img {
