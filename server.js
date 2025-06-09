@@ -117,6 +117,7 @@ app.get('/artpiece/:artpiece/:artname', async function (req, res) {
   const detailArtPieceResponse = await fetch('https://www.rijksmuseum.nl/api/nl/collection/'+selectedArtPiece+'?key=pWKXy0OF')
   const detailArtPieceResponseJSON = await detailArtPieceResponse.json();
   let thisArtPieceObject = detailArtPieceResponseJSON.artObject;
+  console.log(thisArtPieceObject);
   detailArtPiececombinedInfo.push({
     ...thisArtPieceObject,
     headerImage: headerImage

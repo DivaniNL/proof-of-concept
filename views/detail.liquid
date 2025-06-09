@@ -41,10 +41,14 @@
                             <th class="collapsed">Afmetingen</th>
                             <td class="collapsed" style="display: table-cell;">
                                 {% for dimension in artPiece.dimensions %}
-                                    {{dimension.type}} {{dimension.value}} {{dimension.unit}}
-                                    {% if artPiece.dimensions.size != forloop.index %}
-                                        x {% comment %} lasty dimension no follow up x {% endcomment %}
+                                    {% if part == dimension.part or forloop.index == 1 %}
+                                        {% if forloop.index > 1 %}
+                                            <br><br>
+                                        {% endif %}
+                                        <strong>{{dimension.part}}: </strong><br>
                                     {% endif %}
+                                    {% assign part = dimension.part %}
+                                    {{dimension.type}} {{dimension.value}} {{dimension.unit}}
 
                                 {% endfor %}
                             </td>

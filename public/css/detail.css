@@ -161,10 +161,10 @@ section.table-detail table tr {
             td, th{
                 background: #8C665F;
                 color: #FCF8F7;
-                font-weight: var(--font-weight-l);
                 width: calc(100% - 200px);
                 &:first-child{
                     width: 200px;
+                    font-weight: var(--font-weight-l);
                 }
             }
         }
@@ -172,10 +172,10 @@ section.table-detail table tr {
             td, th{
                 background: #D8C9C5;
                 color: #56423D;
-                font-weight: var(--font-weight-l);
                 width: calc(100% - 200px);
                 &:first-child{
                     width: 200px;
+                    font-weight: var(--font-weight-l);
                 }
             }
         }
