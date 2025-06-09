@@ -3,6 +3,7 @@ if (typeof TSDViewer !== 'undefined') {
     if(TSDViewer){
         document.querySelector('#model-alt img').setAttribute('style','visibility: hidden;');
         let $aboutViewer = document.querySelector("#model-alt");
+        $aboutViewer.classList.add('debug');
         let paintingFullImg = document.querySelector('#model-alt img');
         var width = paintingFullImg.naturalWidth;
         var height = paintingFullImg.naturalHeight;
@@ -24,7 +25,6 @@ if (typeof TSDViewer !== 'undefined') {
                 $aboutViewer.setTexture({name: 'field1', source: document.querySelector('#model-alt img'), background: '#ff0000', scale: 'cover'}).then(() => { /* callback */ });
                 $aboutViewer.setBackground("#2C2926");
                 document.querySelector("#model-alt img").remove();
-                $aboutViewer.classList.add('debug');
             },
         });
     }
