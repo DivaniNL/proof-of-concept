@@ -3,9 +3,20 @@ if (typeof TSDViewer !== 'undefined') {
     if(TSDViewer){
         document.querySelector('#model-alt img').setAttribute('style','visibility: hidden;');
         let $aboutViewer = document.querySelector("#model-alt");
+        let paintingFullImg = document.querySelector('#model-alt img');
+        var width = paintingFullImg.naturalWidth;
+        var height = paintingFullImg.naturalHeight;
+        if (width > height){
+            modelOrientation = 'hva-pictureframe3-horizontal' /* landscape */
+        } else if (width < height){
+            modelOrientation = 'hva-pictureframe3-vertical' /* portrait */
+        } else {
+            modelOrientation = 'hva-pictureframe2' /* vierkant */
+        }
+
         TSDViewer.create($aboutViewer, {
             forceLoad: true,
-            model: 'hva-pictureframe3-horizontal',
+            model: modelOrientation,
             plugins: 'customiser',
             onLoadComplete: () => {
                 $aboutViewer.setTexture({name: 'field1', source: document.querySelector('#model-alt img'), background: '#ff0000', scale: 'cover'}).then(() => { /* callback */ });
