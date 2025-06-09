@@ -76,6 +76,9 @@ section {
     display: inline-flex;
     margin-bottom: 1.25rem;
     margin-bottom: var(--margin-size-m);
+    span{
+        margin-right: 5px;
+    }
 }
 
 @media (min-width: 720px) {
