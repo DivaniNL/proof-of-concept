@@ -13,7 +13,9 @@ if (typeof TSDViewer !== 'undefined') {
         } else {
             modelOrientation = 'hva-pictureframe2' /* vierkant */
         }
-
+        if (height === undefined || width === undefined){
+            modelOrientation = 'hva-pictureframe3-horizontal' /* fallback */
+        }
         TSDViewer.create($aboutViewer, {
             forceLoad: true,
             model: modelOrientation,
