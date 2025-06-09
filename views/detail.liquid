@@ -1,1 +1,71 @@
-{% comment %} HIER KOMT DETAIL {% endcomment %}
+{% render 'partials/head.liquid' page: "detail"%}
+</head>
+
+<body class="art-piece-detailpage">
+    {% render 'partials/header.liquid' %}
+    <main>
+        <div id="container-wrapper">
+            <figure class="image-header">
+                <img class="hero" src="{{artPiece.headerImage.url}}"
+                    alt="Headerafbeelding van kunststuk: {{artPiece.title}}" width="{{artPiece.headerImage.width}}"
+                    height="{{artPiece.headerImage.height}}">
+            </figure>
+            <section class="info-detail">
+                <a href="/" class="button-primary"><span aria-hidden="true">←</span> Ga terug</a>
+                <h1 class="title-xl">{{artPiece.title}}</h1>
+                <p class="info-desc">
+                    {{artPiece.description}}
+                </p>
+            </section>
+            <section class="model-detail">
+                <h2 class="title-l">Bekijk het kunststuk</h2>
+                <figure id="model-alt">
+                    <img class="big-img" src="{{artPiece.webImage.url}}" width="{{artPiece.webImage.width}}"
+                        height="{{artPiece.webImage.height}}" alt="Afbeelding van kunststuk: {{artPiece.title}}">
+                </figure>
+                <a class="button-secondary" target="_blank" href="{{artPiece.webImage.url}}">Download afbeelding</a>
+            </section>
+            <section class="table-detail">
+                <h2 class="title-l">Eigenschappen</h2>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th class="collapsed">Maker</th>
+                            <td class="collapsed" style="display: table-cell;">{{artPiece.principalOrFirstMaker}}</td>
+                        </tr>
+                        <tr>
+                            <th class="collapsed">Voltooiingsdatum</th>
+                            <td class="collapsed" style="display: table-cell;">{{artPiece.dating.presentingDate}}</td>
+                        </tr>
+                        <tr>
+                            <th class="collapsed">Afmetingen</th>
+                            <td class="collapsed" style="display: table-cell;">
+                                {% for dimension in artPiece.dimensions %}
+                                    {{dimension.type}} {{dimension.value}} {{dimension.unit}}
+                                    {% if artPiece.dimensions.size != forloop.index %}
+                                        x {% comment %} lasty dimension no follow up x {% endcomment %}
+                                    {% endif %}
+
+                                {% endfor %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="collapsed">Materialen</th>
+                            <td class="collapsed" style="display: table-cell;">
+                                {{artPiece.materials}}
+                                {% for material in artPiece.materials %}
+                                    {{material}}
+                                    {% if artPiece.materials.size != forloop.index %}
+                                        , {% comment %} lasty dimension no follow up , {% endcomment %}
+                                    {% endif %}
+                                {% endfor %}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </main>
+</body>
+
+</html>

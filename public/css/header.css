@@ -1,3 +1,23 @@
+.hamburger-open, .hamburger-close{
+    display: none;
+}
+
+header{
+    margin-top: 1rem;
+}
+header .header-logo--svg{
+    max-width: 100%;
+}
+header .header-logo--svg > *{
+    fill: #56423D;
+}
+  @supports selector(&) {
+    header{
+        position: sticky;
+        top: 0;
+        z-index: 99;
+    }
+  }
 body{
     @supports selector(&) {
         padding: 0 0;
@@ -20,6 +40,9 @@ body{
             @media (min-width: 720px){
                 display: none !important;
             }
+        }
+        a.link-home{
+            display: block;
         }
         svg > *{
             fill: var(--color-secondary-text) !important;

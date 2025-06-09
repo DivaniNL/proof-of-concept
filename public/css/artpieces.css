@@ -5,6 +5,37 @@
     width: 0;
     opacity: 0;
 }
+.intro-text{
+    display: none;
+}
+img.art-piece--image{
+    height: auto;
+    width: 100%;
+    max-width: 500px;
+    display: block;
+}
+.collection-frame{
+    display: none;
+    height: 0;
+    width: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.art-piece--readmore{
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    gap: 5px;
+    background-color: #56423D;
+    color: #FCF8F7;
+
+    max-width: 100%;
+    width: 500px;
+}
+.title-main{
+    margin-top: 2rem;
+}
 @supports selector(&) {
     ul.art-pieces{
         li.art-piece{
@@ -63,6 +94,9 @@
             height: 100%;
             z-index: 2;
             pointer-events: none;
+        }
+        .intro-text{
+            display: block;
         }
         .frame-container {
             position: relative;

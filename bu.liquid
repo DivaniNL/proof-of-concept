@@ -1,0 +1,18 @@
+{% if artPieces.size > 0 %}
+
+            <ul class="art-pieces">
+
+                {% for artPiece in artPieces %}
+
+                    <li class="art-piece" data-index={{forloop.index}}>
+                        <h2></h2>
+                        <img src="{{artPiece.webImage.url}}" alt="{{artPiece.title}}" width="{{artPiece.webImage.width}}" height="{{artPiece.webImage.height}}">
+
+                    </li>
+
+
+                {% endfor %}
+
+            </ul>
+                
+        {% endif %}
