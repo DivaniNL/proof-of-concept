@@ -102,6 +102,30 @@ app.post('/upload', upload.single('file'), async (req, res) => {
     res.status(500).json({ error: 'Upload mislukt', details: err.message });
   }
 });
+
+app.get('/detail', async function (req, res) {
+  res.render('detail.liquid')
+})
+app.get('/artpiece/:artpiece/:artname', async function (req, res) {
+  const detailArtPiececombinedInfo = [];
+  let selectedArtPiece = req.params.artpiece
+  let artName = req.params.artname;
+  const headerImageResponse = await fetch('https://www.rijksmuseum.nl/api/nl/collection?key=pWKXy0OF&q='+artName+'&format=json&ps=1');
+  const headerImageResponseJSON = await headerImageResponse.json();
+  let headerImage = headerImageResponseJSON.artObjects[0].headerImage;
+
+  const detailArtPieceResponse = await fetch('https://www.rijksmuseum.nl/api/nl/collection/'+selectedArtPiece+'?key=pWKXy0OF')
+  const detailArtPieceResponseJSON = await detailArtPieceResponse.json();
+  let thisArtPieceObject = detailArtPieceResponseJSON.artObject;
+  detailArtPiececombinedInfo.push({
+    ...thisArtPieceObject,
+    headerImage: headerImage
+  })
+  res.render('detail.liquid', { artPiece: detailArtPiececombinedInfo[0] })
+})
+
+
+
 // Stel het poortnummer in waar Express op moet gaan luisteren
 // Lokaal is dit poort 8000; als deze applicatie ergens gehost wordt, waarschijnlijk poort 80
 app.set('port', process.env.PORT || 8000)

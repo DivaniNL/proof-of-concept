@@ -1,4 +1,4 @@
-{% render 'partials/head.liquid' %}
+{% render 'partials/head.liquid' page: "artpieces" %}
 </head>
 <body>
     {% render 'partials/header.liquid' %}
@@ -14,7 +14,8 @@
                     {% if artPiece.webImage %}
                         {% assign index = index | plus: 1 %}
                         <li class="art-piece" data-index={{forloop.index}}>
-                            <a href="/artPiece/{{artPiece.objectNumber}}" aria-label="bekijk meer over het kunststuk: {{artPiece.title}}"> 
+
+                            <a href="/artpiece/{{artPiece.objectNumber}}/{{artPiece.title | url_encode | replace: ' ', '+'}}" aria-label="bekijk meer over het kunststuk: {{artPiece.title}}"> 
                                 <figure>
                                     <figcaption class="art-piece--title-wrapper">
                                         <h2 class="title-m art-piece--title">{{artPiece.title}}</h2>
