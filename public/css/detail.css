@@ -200,7 +200,17 @@ section.table-detail table tr td {
         width: 50%;
     }
 }
+section.table-detail tr td, section.table-detail tr th{
+    strong {
+        display: block;
+        width: 100%;
+        margin-top: 1rem;
+    }
+    strong:first-child{
+        margin-top: 0;
+    }
 
+}
 section.table-detail table tr th {
     width: 100%;
     padding: 10px 20px;
