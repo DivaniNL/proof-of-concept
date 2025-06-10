@@ -65,7 +65,21 @@ section {
     position: relative;
 
 }
-
+@media(min-width: 720px) {
+    @supports (display: grid){
+        .info-detail {
+            /* PRE CSS DAY - NILS BINDER [https://9elements.com/]  */
+            display: grid;
+            grid-template-columns: repeat(10, 1fr) minmax(0, 48rem) repeat(2, 1fr);
+        }
+        .info-detail .title-xl{
+            grid-column: 5 / -2;
+        }
+        .info-detail .info-desc{
+            grid-column: 11;
+        }
+    }
+}
 @media (min-width: 720px) {
     .info-detail {
         padding-top: 135px;
@@ -109,19 +123,15 @@ section.model-detail figure {
     margin: 0 auto;
     max-width: 750px;
     max-height: 750px;
-    canvas{
-        z-index: 99;
-        height: 500px;
-    }
-    &:has(canvas){
+}
+section.model-detail figure.debug{
+
+        z-index: 98;
+}
+section.model-detail figure.loaded{
         height: 500px !important;
         background: var(--color-cta-secondary);
-        &.debug{
-            z-index: 98;
-        }
-    }
 }
-
 section.model-detail figure img.big-img {
     width: 100%;
     object-fit: contain;

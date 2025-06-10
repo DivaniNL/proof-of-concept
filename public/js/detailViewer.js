@@ -27,6 +27,7 @@ if (typeof TSDViewer !== 'undefined') {
                 document.querySelector("#model-alt img").remove();
             },
         });
+        $aboutViewer.classList.add('loaded');    
     }
 }else{
     console.log('TSD Viewer kan niet worden ingeladen, fukkie wukkie')

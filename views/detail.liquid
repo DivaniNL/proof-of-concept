@@ -41,13 +41,18 @@
                             <th class="collapsed">Afmetingen</th>
                             <td class="collapsed" style="display: table-cell;">
                                 {% for dimension in artPiece.dimensions %}
-                                    {% if part == dimension.part or forloop.index == 1 %}
-                                        {% if forloop.index > 1 %}
-                                            <br><br>
+                                    {% if dimension.part != null %}
+                                        
+                                        {% comment %} Op deze manier wordt elke nieuwe type maat met een nieuw kopje van het onderdeel ingeleid {% endcomment %}
+                                        {% if part != dimension.part or forloop.index == 1 %}
+                                            {% if forloop.index > 1 %}
+                                                <br><br>
+                                            {% endif %}
+                                            <strong>{{dimension.part}}: </strong><br>
                                         {% endif %}
-                                        <strong>{{dimension.part}}: </strong><br>
+                                        {% assign part = dimension.part %}
+                                        
                                     {% endif %}
-                                    {% assign part = dimension.part %}
                                     {{dimension.type}} {{dimension.value}} {{dimension.unit}}
 
                                 {% endfor %}
