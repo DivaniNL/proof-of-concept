@@ -110,6 +110,8 @@ body{
     padding: 0 2rem;
     padding: 0 var(--margin-size-l);
   }
+  position: relative;
+  z-index: 98;
 }
 .title-xl{
   font-size: 2rem;

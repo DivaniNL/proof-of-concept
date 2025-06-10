@@ -65,7 +65,21 @@ section {
     position: relative;
 
 }
-
+@media(min-width: 720px) {
+    @supports (display: grid){
+        .info-detail {
+            /* PRE CSS DAY - NILS BINDER [https://9elements.com/]  */
+            display: grid;
+            grid-template-columns: repeat(10, 1fr) minmax(0, 48rem) repeat(2, 1fr);
+        }
+        .info-detail .title-xl{
+            grid-column: 5 / -2;
+        }
+        .info-detail .info-desc{
+            grid-column: 11;
+        }
+    }
+}
 @media (min-width: 720px) {
     .info-detail {
         padding-top: 135px;
@@ -110,7 +124,14 @@ section.model-detail figure {
     max-width: 750px;
     max-height: 750px;
 }
+section.model-detail figure.debug{
 
+        z-index: 98;
+}
+section.model-detail figure.loaded{
+        height: 500px !important;
+        background: var(--color-cta-secondary);
+}
 section.model-detail figure img.big-img {
     width: 100%;
     object-fit: contain;
@@ -143,18 +164,59 @@ section.table-detail table {
 section.table-detail table tr {
     display: flex;
     flex-wrap: wrap;
-    min-width: 100%
+    min-width: 100%;
+    @media (min-width: 720px){
+        flex-direction: row;
+        &:nth-child(odd){
+            td, th{
+                background: #8C665F;
+                color: #FCF8F7;
+                width: calc(100% - 200px);
+                &:first-child{
+                    width: 200px;
+                    font-weight: var(--font-weight-l);
+                }
+            }
+        }
+        &:nth-child(even){
+            td, th{
+                background: #D8C9C5;
+                color: #56423D;
+                width: calc(100% - 200px);
+                &:first-child{
+                    width: 200px;
+                    font-weight: var(--font-weight-l);
+                }
+            }
+        }
+    }
 }
 
 section.table-detail table tr td {
     width: 100%;
     padding: 10px 20px;
     background: #D8C9C5;
+    @media (min-width: 720px){
+        width: 50%;
+    }
 }
+section.table-detail tr td, section.table-detail tr th{
+    strong {
+        display: block;
+        width: 100%;
+        margin-top: 1rem;
+    }
+    strong:first-child{
+        margin-top: 0;
+    }
 
+}
 section.table-detail table tr th {
     width: 100%;
     padding: 10px 20px;
     text-align: start;
     color: #FCF8F7;
+    @media (min-width: 720px){
+        width: 50%;
+    }
 }

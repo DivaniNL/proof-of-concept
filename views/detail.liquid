@@ -8,7 +8,7 @@
             <figure class="image-header">
                 <img class="hero" src="{{artPiece.headerImage.url}}"
                     alt="Headerafbeelding van kunststuk: {{artPiece.title}}" width="{{artPiece.headerImage.width}}"
-                    height="{{artPiece.headerImage.height}}">
+                    height="{{artPiece.headerImage.height}}" fetchpriority="high" loading="eager">
             </figure>
             <section class="info-detail">
                 <a href="/" class="button-primary"><span aria-hidden="true">←</span> Ga terug</a>
@@ -31,27 +31,36 @@
                     <tbody>
                         <tr>
                             <th class="collapsed">Maker</th>
-                            <td class="collapsed" style="display: table-cell;">{{artPiece.principalOrFirstMaker}}</td>
+                            <td class="collapsed">{{artPiece.principalOrFirstMaker}}</td>
                         </tr>
                         <tr>
                             <th class="collapsed">Voltooiingsdatum</th>
-                            <td class="collapsed" style="display: table-cell;">{{artPiece.dating.presentingDate}}</td>
+                            <td class="collapsed">{{artPiece.dating.presentingDate}}</td>
                         </tr>
                         <tr>
                             <th class="collapsed">Afmetingen</th>
-                            <td class="collapsed" style="display: table-cell;">
+                            <td class="collapsed">
                                 {% for dimension in artPiece.dimensions %}
-                                    {{dimension.type}} {{dimension.value}} {{dimension.unit}}
-                                    {% if artPiece.dimensions.size != forloop.index %}
-                                        x {% comment %} lasty dimension no follow up x {% endcomment %}
+                                    {% if dimension.part != null %}
+                                        
+                                        {% comment %} Op deze manier wordt elke nieuwe type maat met een nieuw kopje van het onderdeel ingeleid {% endcomment %}
+                                        {% if part != dimension.part or forloop.index == 1 %}
+                                            {% if forloop.index > 1 %}
+                                                
+                                            {% endif %}
+                                            <strong>{{dimension.part}}: </strong>
+                                        {% endif %}
+                                        {% assign part = dimension.part %}
+                                        
                                     {% endif %}
+                                    {{dimension.type}} {{dimension.value}} {{dimension.unit}}
 
                                 {% endfor %}
                             </td>
                         </tr>
                         <tr>
                             <th class="collapsed">Materialen</th>
-                            <td class="collapsed" style="display: table-cell;">
+                            <td class="collapsed">
                                 {{artPiece.materials}}
                                 {% for material in artPiece.materials %}
                                     {{material}}
