@@ -110,7 +110,7 @@ img.art-piece--image{
             }
         }
         ul.art-pieces{
-            position: relative;
+            position: absolute;
             top: 11.5%;
             left: 22.5%;
             width: 54%;
