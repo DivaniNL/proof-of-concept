@@ -110,7 +110,7 @@ img.art-piece--image{
             }
         }
         ul.art-pieces{
-            position: absolute;
+            position: relative;
             top: 11.5%;
             left: 22.5%;
             width: 54%;
@@ -119,7 +119,106 @@ img.art-piece--image{
             display: flex;
             scroll-snap-type: x mandatory;
             scroll-behavior: smooth;
+            anchor-name: --carousel;
+            &.slider--has-bullets{
+                scroll-marker-group: before;
+                &::scroll-marker-group {
+                    border-radius: 5px;
+                    gap: 3px;
+                    padding: 6px;
+                    max-width: 110%;
+                    width: max-content;
+                    flex-wrap: wrap;
+                    scroll-padding: 15px;
+                    overflow: auto;
+                    overscroll-behavior-x: contain;
+                    scrollbar-width: none;
+                    scroll-snap-type: x mandatory;
+                    position: absolute;
+                    z-index: 9999;
+                    position-anchor:  --carousel;
+                    translate: 0 50%;
+                    background: rgba(140, 102, 95, 0.9);
+                    box-shadow: 0px 0px 20px #8C665F;
+                    position-area: center bottom;
+                    display: flex;
+                    @media (min-width: 720px){
+                        gap: 10px;
+                        padding: 15px;
+                    }
+                }
+                > li::scroll-marker {
+                    content: '';
+                    border: 3px solid var(--color-cta-secondary);
+                    background: var(--color-cta-secondary);
+                    border-radius: 50%;
+                    outline-offset: 4px;
+                    -webkit-tap-highlight-color: transparent;
+                    scroll-snap-align: center;
+                    transition: 0.3s;
+                    width: 20px;
+                    height: 20px;
+                    @media (min-width: 720px){
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+                > li::scroll-marker:target-current,   >li::scroll-marker:is(:hover, :focus-visible) {
+                    background: var(--color-cta);
+                }
+            }
+            &.slider--has-arrows{
             
+                &::scroll-button(*) {
+                    position: absolute;
+                    position-anchor: --carousel;
+                    height: 100%;
+                    z-index: 99;
+                    width: 40px;
+                    font-size: 32px;
+                    display: flex;
+                    height: 40px;
+                    border-radius: 50%;
+                    background: #2C2926;
+                    border: 0;
+                    align-items: center;
+                    justify-content: center;
+                    color: var(--color-primary-bg);
+                    cursor: pointer;
+                    transition: 0.3s ease;
+                    @media (min-width: 720px){
+                        width: 60px;
+                        height: 60px;
+                        font-size: 48px;
+                    }
+                    
+                }
+                &::scroll-button(*):disabled{
+                    opacity: 0;
+                    cursor: default;
+                }
+                &::scroll-button(*):focus-visible, &::scroll-button(*):hover{
+                    background-color: var(--color-cta);
+                }
+                &::scroll-button(left) {
+                    content: "🠈"/ "Scroll Left";
+                    position-area: center left;
+                    translate: 25% 0;
+                    @media (min-width: 720px){
+                        translate: -85% 0;
+                    }
+                }
+                
+                &::scroll-button(right) {
+                    content: "🠊" / "Scroll Right";
+                    position-area: center right;
+                    translate: -25% 0;
+                    @media (min-width: 720px){
+                        translate: 85% 0;
+                    }
+                }
+            
+            }
             z-index: 4;
             margin: 0 !important;
             li.art-piece{
