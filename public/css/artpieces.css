@@ -191,10 +191,14 @@ img.art-piece--image{
                         height: 60px;
                         font-size: 48px;
                     }
+                    
                 }
                 &::scroll-button(*):disabled{
                     opacity: 0;
                     cursor: default;
+                }
+                &::scroll-button(*):focus-visible, &::scroll-button(*):hover{
+                    background-color: var(--color-cta);
                 }
                 &::scroll-button(left) {
                     content: "🠈"/ "Scroll Left";

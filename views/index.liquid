@@ -7,7 +7,7 @@
         <p class="title-m intro-text">Scoll door de foto's heen</p>
         {% if artPieces.size > 0 %}
         <div class="frame-container">
-            <img src="/assets/frame.png" class="frame">
+            <img src="/assets/frame.png" class="frame" aria-hidden="true">
             <ul class="art-pieces slider--has-arrows slider--has-bullets">
                 {% assign index = 0 %}
                 {% for artPiece in artPieces %}
