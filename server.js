@@ -30,10 +30,25 @@ const artPiecesResponseJSON = await artPiecesResponse.json();
 app.get('/', async function (req, res) {
   res.render('index.liquid', { artPieces: artPiecesResponseJSON.artObjects })
 })
+app.get('/custom-gallery', async function (req, res) {
+  const customArtPiecesResponse = await fetch('https://fdnd-agency.directus.app/items/degrees270_gallery?filter={"for":"Divani/Gallery270"}&limit=-1&fields=*,image.id,image.width,image.height');
+  const customArtPiecesResponseJSON = await customArtPiecesResponse.json();
+  res.render('custom-gallery.liquid', { artPieces: customArtPiecesResponseJSON.data })
+})
+app.get('/upload{/:status}', async function (req, res) {
+  if (req.query.status){
+    res.render('upload.liquid', {status: "ok"})
+
+  }else{
+    res.render('upload.liquid')
+
+  }
+})
 const upload = multer({ dest: 'uploads/' });
 
 app.post('/upload', upload.single('file'), async (req, res) => {
   const file = req.file;
+
   if (!file) return res.status(400).json({ error: 'Geen bestand ontvangen' });
 
   try {
@@ -70,12 +85,12 @@ app.post('/upload', upload.single('file'), async (req, res) => {
 
     // 2. Maak een record aan
     const record = {
-      full_name: 'Lisanne Bronkhorst',
-      status: 'draft',
-      cover: fileId,
+      for: 'Divani/Gallery270',
+      title: req.body.title,
+      image: fileId,
     };
 
-    const recordResponse = await fetch('https://fdnd-agency.directus.app/items/mh_users', {
+    const recordResponse = await fetch('https://fdnd-agency.directus.app/items/degrees270_gallery', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -92,10 +107,7 @@ app.post('/upload', upload.single('file'), async (req, res) => {
     const recordResult = await recordResponse.json();
     await fs.unlink(file.path);
 
-    res.json({
-      message: 'Upload en record succesvol',
-      record: recordResult,
-    });
+    res.redirect(303, `/upload/success`, );
 
   } catch (err) {
     console.error(err);
@@ -103,9 +115,6 @@ app.post('/upload', upload.single('file'), async (req, res) => {
   }
 });
 
-app.get('/detail', async function (req, res) {
-  res.render('detail.liquid')
-})
 app.get('/artpiece/:artpiece/:artname', async function (req, res) {
   const detailArtPiececombinedInfo = [];
   let selectedArtPiece = req.params.artpiece
@@ -125,6 +134,13 @@ app.get('/artpiece/:artpiece/:artname', async function (req, res) {
   res.render('detail.liquid', { artPiece: detailArtPiececombinedInfo[0] })
 })
 
+app.get('/artpiece/custom/:artpiece/:artname', async function (req, res) {
+  let selectedArtPiece = req.params.artpiece
+  const detailArtPieceResponse = await fetch('https://fdnd-agency.directus.app/items/degrees270_gallery/'+selectedArtPiece+'?fields=*,image.id,image.width,image.height');
+  const detailArtPieceResponseJSON = await detailArtPieceResponse.json();
+  let dataToPass = detailArtPieceResponseJSON.data
+  res.render('detail-custom.liquid', { artPiece: dataToPass})
+})
 
 
 // Stel het poortnummer in waar Express op moet gaan luisteren

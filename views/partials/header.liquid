@@ -24,8 +24,17 @@
             </svg>Sluit
         </a>
         <ul>
-            <li><a href="">Upload your own!</a></li>
-            <li><a href="">Custom Library</a></li>
+
+            <li>
+                <a 
+                    {% if upload == "current" %}
+                        class="active"
+                    {% endif %}
+                    href="/upload">Upload your own!
+
+                </a>
+            </li>
+            <li><a href="/custom-gallery">Custom Library</a></li>
         </ul>
     </nav>
 
