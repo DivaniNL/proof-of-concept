@@ -121,7 +121,7 @@ img.art-piece--image{
             scroll-behavior: smooth;
             anchor-name: --carousel;
             &.slider--has-bullets{
-                scroll-marker-group: before;
+                scroll-marker-group: after;
                 &::scroll-marker-group {
                     border-radius: 5px;
                     gap: 3px;
