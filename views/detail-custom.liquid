@@ -1,0 +1,37 @@
+{% render 'partials/head.liquid' page: "detail"%}
+</head>
+{{artPiece | json}}
+<body class="art-piece-detailpage">
+    <style>
+        body.art-piece-detailpage main figure img.hero{
+            width: 100%;
+            object-fit: cover;
+            height: auto;
+            max-height: 300px;
+        }
+    </style>
+    {% render 'partials/header.liquid' %}
+    <main>
+        <div id="container-wrapper">
+            <figure class="image-header">
+                <img class="hero" src="https://fdnd-agency.directus.app/assets/{{artPiece.image.id}}"
+                    alt="Headerafbeelding van kunststuk: {{artPiece.title}}" width="{{artPiece.image.width}}"
+                    height="{{artPiece.image.height}}" fetchpriority="high" loading="eager">
+            </figure>
+            <section class="info-detail">
+                <a href="/custom-gallery" class="button-primary"><span aria-hidden="true">←</span> Ga terug</a>
+                <h1 class="title-xl">{{artPiece.title}}</h1>
+            </section>
+            <section class="model-detail">
+                <h2 class="title-l">Bekijk het kunststuk</h2>
+                <figure id="model-alt">
+                    <img class="big-img" src="https://fdnd-agency.directus.app/assets/{{artPiece.image.id}}" width="{{artPiece.image.width}}"
+                        height="{{artPiece.image.height}}" alt="Afbeelding van kunststuk: {{artPiece.title}}">
+                </figure>
+                <a class="button-secondary" target="_blank" href="https://fdnd-agency.directus.app/assets/{{artPiece.image.id}}">Download afbeelding</a>
+            </section>
+        </div>
+    </main>
+</body>
+
+</html>

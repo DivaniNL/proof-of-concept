@@ -1,0 +1,26 @@
+{% render 'partials/head.liquid' page: "formpage" %}
+</head>
+<body class="page-upload">
+    {% render 'partials/header.liquid' upload:"current"%}
+    <main>
+        <div class="container">
+            <h1 class="title-xl">Upload Kunstwerk</h1>
+            <form action="/upload" method="POST" enctype="multipart/form-data">
+                <label for="title">Geef je kunstwerk een titel</label>
+                <input type="text" name="title" id="title">
+                <label for="input-file">Upload afbeelding</label>
+                <input type="file" name="file" accept="image/*" id="input-file" class="input-file"/>
+                <button class="button-primary" type="submit">Submit</button>
+            </form>
+        </div>
+    </main>
+    <script type="module">
+
+			let input = document.querySelector('input.input-file');
+			input.addEventListener('change', function(event){
+				for(let i = 0; i < this.files.length; i++){
+					this.previousElementSibling.style.setProperty('--url',"url('"+URL.createObjectURL(this.files[i])+"')");
+				}
+			});
+		</script>
+</body>

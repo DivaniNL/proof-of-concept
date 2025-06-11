@@ -205,6 +205,7 @@ body{
   padding: 0 var(--margin-size-m);
 }
 .button-primary{
+  cursor: pointer;
   padding: var(--margin-size-s) var(--margin-size-m);
   background-color: #B93929;
   background-color: var(--color-cta);
@@ -232,6 +233,7 @@ body{
 
 
 .button-secondary{
+  cursor: pointer;
   padding: var(--margin-size-s) var(--margin-size-m);
   background-color: #2C2926;
   background-color: var(--color-secondary-bg);

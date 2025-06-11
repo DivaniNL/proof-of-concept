@@ -1,0 +1,118 @@
+body.page-upload{
+    background-color: #2C2926;
+    background-color: var(--color-secondary-bg);
+    color: #fff;
+    color: var(--color-secondary-text);
+}
+body.page-upload .container{
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+    max-width: 1224px;
+}
+body.page-upload .title-xl{
+    margin-top: 2rem;
+    margin-top: var(--margin-size-l);
+}
+body.page-upload form{
+    display: inline-flex;
+    flex-direction: column;
+    width: 100%;
+}
+body.page-upload form label{
+    text-align: left;
+}
+body.page-upload input[type="text"]{
+    max-width: 100%;
+    width: 500px;
+    display: flex;
+    padding: 12px;
+    padding: var(--margin-size-s);
+    background-color: #fff;
+    background-color: var(--color-primary-bg);
+    border: 3px solid #56423D;
+    border: 3px solid var(--color-primary-text);
+    font-family: RijksText, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+body.page-upload input[type="text"]:focus-visible{
+    border-style: dashed;
+    border-color: #B93929;
+    border-color: var(--color-cta);
+    outline: none;
+}
+body.page-upload label[for="input-file"]{
+    margin-top: 1.25rem;
+    margin-top: var(--margin-size-m);
+}
+body.page-upload form button{
+    width: fit-content;
+    margin-top: 1.25rem;
+    margin-top: var(--margin-size-m);
+}
+body.page-upload header{
+    padding: 0 2rem;
+    padding: var(--margin-size-l);
+    max-width: 1224px;
+    margin: 0 auto;
+}
+body.page-upload header svg > *{
+    fill: #FCF8F7;
+    fill: var(--color-secondary-text) !important;
+}
+body.page-upload  header .menu-primary ul li a{
+    color:#FCF8F7;
+    color: var(--color-secondary-text) !important;
+}
+input[type="file"]:focus-visible::-webkit-file-upload-button{
+    outline: 3px dashed #B93929;
+}
+@supports selector(&) {
+    body.page-upload header{
+        padding: 16px var(--margin-size-s);
+    }
+    body.page-upload  header{
+        max-width: none;
+    }
+
+}
+@supports (color: var(--caniuse-var)) {    
+    body.page-upload form{
+        display: block;
+        max-width: 100%;
+        width: 500px;
+        position: relative;
+    }
+    body.page-upload label[for="input-file"]{
+        width: 500px;
+        max-width: 100%;
+        aspect-ratio: 1/1;
+        border: 3px solid black;
+        border: 3px solid var(--color-primary-text);
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: var(--color-table-odd) var(--url, none) center/cover;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    body.page-upload input[type="file"]{
+        position: absolute;
+        bottom: 65px;
+        left: 0;
+        opacity: 0;
+        width: 500px;
+        max-width: 100%;
+        aspect-ratio: 1/1;
+        cursor: pointer;
+    }
+    body.page-upload form:has(input[type="file"]:focus-visible){
+        label[for="input-file"]{
+            border-color: var(--color-cta);
+            border-style: dashed;
+        }
+    }
+
+}
