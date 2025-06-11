@@ -34,7 +34,14 @@
 
                 </a>
             </li>
-            <li><a href="/custom-gallery">Custom Library</a></li>
+            <li>
+                <a 
+                    {% if view == "current" %}
+                        class="active"
+                    {% endif %}
+                    href="/custom-gallery">Custom Library
+                </a>
+            </li>
         </ul>
     </nav>
 
