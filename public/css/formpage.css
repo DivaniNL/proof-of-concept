@@ -121,7 +121,7 @@ input[type="file"]:focus-visible::-webkit-file-upload-button{
   z-index: 10;
   left: 50%;
   position: absolute;
-  translate: -50% -50%;
+transform: translate(-50%, -50%);
   width: 175px;
   height: 80px;
   display: block;

@@ -123,7 +123,7 @@ img.art-piece--image{
                     position: absolute;
                     z-index: 9999;
                     position-anchor:  --carousel;
-                    translate: 0 50%;
+                    translate: 0 33%;
                     background: rgba(140, 102, 95, 0.9);
                     box-shadow: 0px 0px 20px #8C665F;
                     position-area: center bottom;
@@ -142,8 +142,8 @@ img.art-piece--image{
                     -webkit-tap-highlight-color: transparent;
                     scroll-snap-align: center;
                     transition: 0.3s;
-                    width: 20px;
-                    height: 20px;
+                    width: 15px;
+                    height: 15px;
                     @media (min-width: 720px){
                         width: 30px;
                         height: 30px;

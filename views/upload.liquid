@@ -15,6 +15,9 @@
         </div>
     </main>
     <script type="module">
+        const supportsPopoverOpen = CSS.supports('selector(:popover-open)');
+
+
 
         // init popup
         let popoverSucces = document.createElement('div');
@@ -50,9 +53,11 @@
         popoverSucces.appendChild(img);
 
         // Add popover
-        popoverSucces.setAttribute('popover', '');
-        popoverSucces.setAttribute('id', 'popover-ok');
-        document.querySelector('main').appendChild(popoverSucces);
+        if (supportsPopoverOpen) {
+            popoverSucces.setAttribute('popover', '');
+            popoverSucces.setAttribute('id', 'popover-ok');
+            document.querySelector('main').appendChild(popoverSucces);
+        }
 
         let fileSelected;
         let textInputContent;
@@ -62,20 +67,22 @@
         input.addEventListener('change', function(event){
             this.previousElementSibling.style.setProperty('--url',"url('"+URL.createObjectURL(this.files[0])+"')");
             fileSelected = (this.files[0]);
-            console.log(fileSelected);
-
             // change img in popup
-            img.src = URL.createObjectURL(this.files[0]);
+            if (supportsPopoverOpen) {
+                img.src = URL.createObjectURL(this.files[0]);
+            }
         });
+        if (supportsPopoverOpen) {
+            // on title change
+            document.querySelector('input[type="text"]').addEventListener('change', function(event){
+                titleText.innerHTML = event.currentTarget.value;
+            });
+            // clsoe popover with cross
 
-        // on title change
-        document.querySelector('input[type="text"]').addEventListener('change', function(event){
-           titleText.innerHTML = event.currentTarget.value;
-        });
-        // clsoe popover with cross
-        crossImg.addEventListener('click', function(){
-            popoverSucces.hidePopover();
-        })
+            crossImg.addEventListener('click', function(){
+                popoverSucces.hidePopover();
+            })
+        }
 
         // client side fetch
         if ('fetch' in window && 'DOMParser' in window) {
@@ -110,8 +117,10 @@
                 
                 else{
                     new Audio('/assets/noti.mp3').play();
-                    const popover = document.querySelector('div#popover-ok')
-                    popover.showPopover();
+                    if (supportsPopoverOpen) {
+                        const popover = document.querySelector('div#popover-ok')
+                        popover.showPopover();
+                    }
 
                 }
 
