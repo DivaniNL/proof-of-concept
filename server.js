@@ -50,7 +50,7 @@ app.post('/upload', upload.single('file'), async (req, res) => {
   const file = req.file;
 
   if (!file) return res.status(400).json({ error: 'Geen bestand ontvangen' });
-
+    
   try {
     const fileBuffer = await fs.readFile(file.path);
     const boundary = '----WebKitFormBoundary' + Math.random().toString(36).substring(2);

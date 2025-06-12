@@ -116,3 +116,130 @@ input[type="file"]:focus-visible::-webkit-file-upload-button{
     }
 
 }
+.loader {
+  top: 50%;
+  z-index: 10;
+  left: 50%;
+  position: absolute;
+  translate: -50% -50%;
+  width: 175px;
+  height: 80px;
+  display: block;
+  margin: auto;
+  background-image: radial-gradient(circle 25px at 25px 25px, #FFF 100%, transparent 0), radial-gradient(circle 50px at 50px 50px, #FFF 100%, transparent 0), radial-gradient(circle 25px at 25px 25px, #FFF 100%, transparent 0), linear-gradient(#FFF 50px, transparent 0);
+  background-size: 50px 50px, 100px 76px, 50px 50px, 120px 40px;
+  background-position: 0px 30px, 37px 0px, 122px 30px, 25px 40px;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+}
+.loader::after {
+  content: '';  
+  left: 50%;
+  bottom: 30px;
+  transform: translate(-50%, 0);
+  position: absolute;
+  border: 15px solid transparent;
+  border-bottom-color: #FF3D00;
+  box-sizing: border-box;
+  animation: fadePull 1s linear infinite;
+}
+.loader::before {
+  content: '';  
+  left: 50%;
+  bottom: 15px;
+  transform: translate(-50%, 0);
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: #FF3D00;
+  box-sizing: border-box;
+  animation: fadePull 1s linear infinite;
+}
+
+@keyframes fadePull {
+  0% {
+    transform: translate(-50%, 15px);
+    opacity: 0;
+  }
+  50% {
+    transform: translate(-50%, 0px);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -15px);
+    opacity: 0;
+  }
+}
+form{
+    position: relative;
+}
+form.loading::after{
+    position: absolute;
+    background-color: rgba(86, 66, 61, 0.6);
+    content: '';
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 8;
+    left: 0;
+}
+[popover]{
+    padding: 24px;
+    position: absolute;
+    width: 600px;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    max-width: 95%;
+    overflow: visible;
+}
+[popover] img{
+    width: 600px;
+    max-width: 100%;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+}
+[popover] .text-l{
+    margin-bottom: 12px;
+    text-align: center;
+}
+[popover]::backdrop {
+    background: rgba(86, 66, 61, 0.8);
+}
+[popover] .popover-cross{
+    height: 45px;
+    width: 45px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 99;
+    background-size: cover;
+    background-repeat: no-repeat;
+    translate: 50% -50%;
+    cursor: pointer;
+}
+[popover] a{
+    position: relative;
+    display: block;
+    margin: 0 auto 12px auto;
+    width: fit-content;
+    position: relative;
+    &:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 2px;
+        bottom: -4px;
+        left: 0;
+        background-color: currentColor;
+        transform-origin: bottom left;
+        transition: transform 0.4s ease-out;
+    }
+    &:hover, &:focus-visible{
+        &:after{
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+    }
+}

@@ -5,7 +5,7 @@
     <main>
         <div class="container">
             <h1 class="title-xl">Upload Kunstwerk</h1>
-            <form action="/upload" method="POST" enctype="multipart/form-data">
+            <form data-enhanced="client-side-reaction" action="/upload" method="POST" enctype="multipart/form-data">
                 <label for="title">Geef je kunstwerk een titel</label>
                 <input type="text" name="title" id="title">
                 <label for="input-file">Upload afbeelding</label>
@@ -16,11 +16,119 @@
     </main>
     <script type="module">
 
-			let input = document.querySelector('input.input-file');
-			input.addEventListener('change', function(event){
-				for(let i = 0; i < this.files.length; i++){
-					this.previousElementSibling.style.setProperty('--url',"url('"+URL.createObjectURL(this.files[i])+"')");
-				}
-			});
-		</script>
+        // init popup
+        let popoverSucces = document.createElement('div');
+
+        // title
+        let checkmarkText = document.createElement('h2')
+        checkmarkText.innerHTML = '✅ Je kunstwerk is succesvol geüpload!';
+        checkmarkText.classList.add('title-l');
+        popoverSucces.appendChild(checkmarkText);
+
+        // link to custom museum
+        let customMuseum = document.createElement('a');
+        customMuseum.setAttribute('href', '/custom-gallery');
+        customMuseum.classList.add('text-l');
+        customMuseum.innerHTML = 'Bekijk jouw kunstwerk tussen de andere kunstwerken'
+        popoverSucces.appendChild(customMuseum);
+
+        // title of artwork
+        let titleText = document.createElement('p');
+        titleText.classList.add('text-l')
+        popoverSucces.appendChild(titleText);
+
+        // close cross
+        let crossImg = document.createElement('div')
+        crossImg.style.backgroundImage = "url('/assets/cross-red-circle.png')";
+        popoverSucces.appendChild(crossImg);
+        crossImg.classList.add('popover-cross');
+
+        // set image to be replaced with custom image
+        const img = document.createElement('img');
+        img.alt = 'Geüpload kunstwerk';
+        img.classList.add('upload-preview');
+        popoverSucces.appendChild(img);
+
+        // Add popover
+        popoverSucces.setAttribute('popover', '');
+        popoverSucces.setAttribute('id', 'popover-ok');
+        document.querySelector('main').appendChild(popoverSucces);
+
+        let fileSelected;
+        let textInputContent;
+        let input = document.querySelector('input.input-file');
+
+        // on image change
+        input.addEventListener('change', function(event){
+            this.previousElementSibling.style.setProperty('--url',"url('"+URL.createObjectURL(this.files[0])+"')");
+            fileSelected = (this.files[0]);
+            console.log(fileSelected);
+
+            // change img in popup
+            img.src = URL.createObjectURL(this.files[0]);
+        });
+
+        // on title change
+        document.querySelector('input[type="text"]').addEventListener('change', function(event){
+           titleText.innerHTML = event.currentTarget.value;
+        });
+        // clsoe popover with cross
+        crossImg.addEventListener('click', function(){
+            popoverSucces.hidePopover();
+        })
+
+        // client side fetch
+        if ('fetch' in window && 'DOMParser' in window) {
+            
+
+            document.addEventListener('submit', async function(event) {
+
+                const form = event.target
+                console.log(form.outerHTML);
+                let type;
+                let loader = document.createElement('div');
+                loader.classList.add('loader');
+                form.classList.add('loading');
+                form.appendChild(loader)
+                if (!form.hasAttribute('data-enhanced')) {
+                    return
+                }
+                event.preventDefault()                   
+
+                form.classList.add('loading');
+                  const formData = new FormData(form);
+                // UPDATE DOM
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: formData
+                });
+                console.log(response.status);
+                // 200 = OK POST, 204 = OK DELETE
+                if (response.status !== 200 && response.status !== 204) {
+                    console.log('test failed');
+                }
+                
+                else{
+                    new Audio('/assets/noti.mp3').play();
+                    const popover = document.querySelector('div#popover-ok')
+                    popover.showPopover();
+
+                }
+
+                const responseText = await response.text()
+                const parser = new DOMParser()
+                const responseDOM = parser.parseFromString(responseText, 'text/html')
+                const newState = responseDOM.querySelector('[data-enhanced="' + form.getAttribute('data-enhanced') + '"]');
+                loader.remove();
+                form.classList.remove('loading');
+
+                
+                console.log(responseDOM);
+                console.log(newState.outerHTML);
+                form.outerHTML = newState.outerHTML
+                const popover = document.querySelector('div#popover-ok')
+                // remove old state
+            })
+        }
+    </script>
 </body>
