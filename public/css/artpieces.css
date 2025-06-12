@@ -264,3 +264,45 @@ img.art-piece--image{
         }
     }
 }
+
+.slider-arrow{
+    position: absolute;
+    z-index: 99;
+    width: 40px;
+    font-size: 32px;
+    display: flex;
+    height: 40px;
+    border-radius: 50%;
+    background: #2C2926;
+    border: 0;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary-bg);
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.slider-arrow:hover, .slider-arrow:focus{
+    background-color: #B93929;
+}
+.slider-arrow svg{
+    width: 24px;
+    height: 24px;
+}
+.slider-arrow--left{
+    top: 75%;
+    left: 22.5%;
+}
+.slider-arrow--right{
+    top: 75%;
+    right: 22.5%;
+}
+@media (min-width: 720px) {
+    .slider-arrow{
+        height: 60px;
+        width: 60px;
+    }
+    .slider-arrow svg{
+        width: 38px;
+        height: 38px;
+    }
+}

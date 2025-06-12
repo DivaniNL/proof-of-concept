@@ -27,10 +27,6 @@
         }
 
     </style>
-    <script >window.TSDAPIKEY = '645c0808-b5fb-4d15-8986-ffb6a267af2d';</script>
-    <script defer src="https://api.270degrees.nl/api/script/latest/viewer.js"></script>
-    <script defer src="/js/detailViewer.js"></script>
-    <script defer src="https://api.270degrees.nl/api/script/latest/customiser.js"></script>
     <link rel="preload" href="/fonts/Rijksmuseum-Normal.woff2" as="font" type="font/woff2" crossorigin="">
     <link rel="preload" href="/fonts/Rijksmuseum-Bold.woff2" as="font" type="font/woff2" crossorigin="">
     <link rel="stylesheet" rel="preload" href="/css/style.css">
@@ -39,6 +35,10 @@
     {% endif %}
     {% if page =="detail" %}
         <link rel="stylesheet" rel="preload" href="/css/detail.css">
+        <script >window.TSDAPIKEY = '645c0808-b5fb-4d15-8986-ffb6a267af2d';</script>
+        <script defer src="https://api.270degrees.nl/api/script/latest/viewer.js"></script>
+        <script defer src="/js/detailViewer.js"></script>
+        <script defer src="https://api.270degrees.nl/api/script/latest/customiser.js"></script>
     {% endif %}
     {% if page =="formpage" %}
         <link rel="stylesheet" rel="preload" href="/css/formpage.css">

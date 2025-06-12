@@ -49,5 +49,72 @@
         {% endif %}
 
     </main>
+    <script>
+        const scrollMarkersSupport = CSS.supports("selector(::scroll-marker-group)");
+        const scrollSnapSupport = CSS.supports("scroll-snap-type: x mandatory");
+        if(scrollMarkersSupport){
+            if(scrollSnapSupport){
+                // Markers: yes, Snap: yes
+            }
+            else{
+                // Markers: yes, Snap: yes
+            }
+        }
+        else{
+            if(scrollSnapSupport){
+                // Markers: no, Snap: yes
+                function createArrowSVG(flip = false) {
+                    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+                    svg.setAttribute("viewBox", "0 -622 827 724.99999");
+                    svg.setAttribute("width", "24");
+                    svg.setAttribute("height", "24");
 
+                    if (flip) {
+                        svg.setAttribute("style", "transform: scaleX(-1);");
+                    }
+
+                    const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+                    g.setAttribute("transform", "translate(-51,-361)");
+
+                    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                    path.setAttribute("d", "M 423,464 878,101 423,-261 V 33 H 51 v 138 h 372 c 0,0 0,293 0,293 z");
+                    path.setAttribute('fill', '#FCF8F7');
+                    g.appendChild(path);
+                    svg.appendChild(g);
+                    return svg;
+                }
+
+                const leftButton = document.createElement("button");
+                leftButton.className = "slider-arrow slider-arrow--left";
+                leftButton.appendChild(createArrowSVG(true)); /* draai de rechter om */
+
+                const rightButton = document.createElement("button");
+                rightButton.className = "slider-arrow slider-arrow--right";
+                rightButton.appendChild(createArrowSVG(false));
+
+                const sliderContainer = document.querySelector(".frame-container");
+                const artPieces = document.querySelector(".art-pieces");
+                const scrollArea = document.querySelector('ul.art-pieces');
+                sliderContainer.insertBefore(leftButton, artPieces);
+                sliderContainer.insertBefore(rightButton, artPieces);
+                leftButton.addEventListener('click', function(){
+                    scrollArea.scrollLeft-=scrollArea.offsetWidth;
+                    if(scrollArea.scrollLeft <= 0){
+                        scrollArea.scrollLeft = scrollArea.scrollWidth - scrollArea.offsetWidth;
+                    }
+
+                });
+                rightButton.addEventListener('click', function(){
+                    scrollArea.scrollLeft+=scrollArea.offsetWidth;
+                    if(scrollArea.offsetWidth + scrollArea.scrollLeft == scrollArea.scrollWidth){
+                        scrollArea.scrollLeft = 0;
+                    }
+                    
+                });
+            }else{
+                // Markers: no, Snap: no
+            
+            }
+        }
+    </script>
 </body>
