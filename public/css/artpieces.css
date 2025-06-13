@@ -187,20 +187,34 @@ img.art-piece--image{
                     background-color: var(--color-cta);
                 }
                 &::scroll-button(left) {
-                    content: "🠈"/ "Scroll Left";
+                    background-image: url('../assets/arrow-right.svg');
+                    -webkit-transform: scale(-1, -1);
+                    -moz-transform: scale(-1, -1);
+                    -o-transform: scale(-1, -1);
+                    transform: scale(-1, -1);
                     position-area: center left;
+                    content: '';
+                    background-size: 30px 30px;
+                    background-repeat: no-repeat;
+                    background-position: center;
                     translate: 25% 0;
                     @media (min-width: 720px){
                         translate: -85% 0;
+                        background-size: 60px 60px;
                     }
                 }
                 
                 &::scroll-button(right) {
-                    content: "🠊" / "Scroll Right";
+                    background-image: url('../assets/arrow-right.svg');
                     position-area: center right;
+                    content: '';
+                    background-size: 30px 30px;
+                    background-repeat: no-repeat;
+                    background-position: center;
                     translate: -25% 0;
                     @media (min-width: 720px){
                         translate: 85% 0;
+                        background-size: 60px 60px;
                     }
                 }
             
