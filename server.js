@@ -24,6 +24,7 @@ app.engine('liquid', engine.express())
 // Let op: de browser kan deze bestanden niet rechtstreeks laden (zoals voorheen met HTML bestanden)
 app.set('views', './views')
 
+// Haal 10 kunstwerken op uit de rijksmuseum API
 const artPiecesResponse = await fetch('https://www.rijksmuseum.nl/api/nl/collection?key=pWKXy0OF&ps=10');
 const artPiecesResponseJSON = await artPiecesResponse.json();
 
@@ -31,21 +32,17 @@ app.get('/', async function (req, res) {
   res.render('index.liquid', { artPieces: artPiecesResponseJSON.artObjects })
 })
 app.get('/custom-gallery', async function (req, res) {
+  // Haal alle custom schilderijen op uit directus
   const customArtPiecesResponse = await fetch('https://fdnd-agency.directus.app/items/degrees270_gallery?filter={"for":"Divani/Gallery270"}&limit=-1&fields=*,image.id,image.width,image.height');
   const customArtPiecesResponseJSON = await customArtPiecesResponse.json();
   res.render('custom-gallery.liquid', { artPieces: customArtPiecesResponseJSON.data })
 })
 app.get('/upload{/:status}', async function (req, res) {
-  if (req.query.status){
-    res.render('upload.liquid', {status: "ok"})
-
-  }else{
-    res.render('upload.liquid')
-
-  }
+  res.render('upload.liquid')
 })
+//MARK: POST
+// Gebruik Multer om een tijdelijke opslagplaats voor afbeeldingen te creeren, ter voorbereiding van image post
 const upload = multer({ dest: 'uploads/' });
-
 app.post('/upload', upload.single('file'), async (req, res) => {
   const file = req.file;
 
@@ -61,7 +58,7 @@ app.post('/upload', upload.single('file'), async (req, res) => {
       `Content-Type: ${file.mimetype}\r\n\r\n` +
       fileBuffer +
       `\r\n--${boundary}--\r\n`;
-
+    //maak een request aan om afbeelding naar directus files te pushen
     const uploadResponse = await fetch('https://fdnd-agency.directus.app/files', {
       method: 'POST',
       headers: {
@@ -89,7 +86,7 @@ app.post('/upload', upload.single('file'), async (req, res) => {
       title: req.body.title,
       image: fileId,
     };
-
+    //Post de data naar directus
     const recordResponse = await fetch('https://fdnd-agency.directus.app/items/degrees270_gallery', {
       method: 'POST',
       headers: {
@@ -114,14 +111,22 @@ app.post('/upload', upload.single('file'), async (req, res) => {
     res.status(500).json({ error: 'Upload mislukt', details: err.message });
   }
 });
-
+// MARK: DETAIL PAGE GET
 app.get('/artpiece/:artpiece/:artname', async function (req, res) {
+  
+  // in deze array combine ik de detailedresponse en de headeriamge tot een object
   const detailArtPiececombinedInfo = [];
+  // Haal de naam en artpiececode op uit de link
   let selectedArtPiece = req.params.artpiece
   let artName = req.params.artname;
+
+
+  // haal header image op uit de global fetch, deze zit niet in de detailedresponse
   const headerImageResponse = await fetch('https://www.rijksmuseum.nl/api/nl/collection?key=pWKXy0OF&q='+artName+'&format=json&ps=1');
   const headerImageResponseJSON = await headerImageResponse.json();
   let headerImage = headerImageResponseJSON.artObjects[0].headerImage;
+
+
 
   const detailArtPieceResponse = await fetch('https://www.rijksmuseum.nl/api/nl/collection/'+selectedArtPiece+'?key=pWKXy0OF')
   const detailArtPieceResponseJSON = await detailArtPieceResponse.json();
