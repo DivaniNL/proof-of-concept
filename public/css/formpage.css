@@ -50,6 +50,7 @@ body.page-upload form button{
     width: fit-content;
     margin-top: 1.25rem;
     margin-top: var(--margin-size-m);
+    margin-bottom: 5rem;
 }
 body.page-upload header{
     padding: 0 2rem;
