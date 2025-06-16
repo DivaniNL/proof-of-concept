@@ -28,7 +28,7 @@ img.art-piece--image{
     width: 500px;
 }
 .title-main{
-    margin-top: 2rem;
+    margin-top: .75rem;
 }
 @supports selector(&) {
     ul.art-pieces{
