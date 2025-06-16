@@ -13,12 +13,13 @@
                     {% if artPiece.image %}
                         {% assign index = index | plus: 1 %}
                         <li class="art-piece" data-index={{forloop.index}}>
-
                             <a href="/artpiece/custom/{{artPiece.id}}/{{artPiece.title | url_encode | replace: ' ', '+'}}" aria-label="bekijk meer over het kunststuk: {{artPiece.title}}"> 
                                 <figure>
-                                    <figcaption class="art-piece--title-wrapper">
-                                        <h2 class="title-m art-piece--title">{{artPiece.title}}</h2>
-                                    </figcaption>
+                                    {% if artPiece.title != "" %}
+                                        <figcaption class="art-piece--title-wrapper">
+                                            <h2 class="title-m art-piece--title">{{artPiece.title}}</h2>
+                                        </figcaption>
+                                    {% endif %}
                                     <img
                                         {% if forloop.index > 2 %}
                                             loading="lazy"
