@@ -18,6 +18,7 @@ body.page-upload form{
     display: inline-flex;
     flex-direction: column;
     width: 100%;
+    margin-bottom: 2rem;
 }
 body.page-upload form label{
     text-align: left;
@@ -50,7 +51,7 @@ body.page-upload form button{
     width: fit-content;
     margin-top: 1.25rem;
     margin-top: var(--margin-size-m);
-    margin-bottom: 5rem;
+
 }
 body.page-upload header{
     padding: 0 2rem;

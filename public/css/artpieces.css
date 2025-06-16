@@ -56,6 +56,17 @@ img.art-piece--image{
                 }
                 
             }
+            a{
+                span.art-piece--readmore{
+                    width: initial;
+                    position: absolute;
+                    right: 10px;
+                    bottom: 10px;
+                    border: 2px solid;
+                    transition: 0.3s ease-in;
+                }
+                
+            }
         }
 
     }
@@ -247,6 +258,11 @@ img.art-piece--image{
                             figcaption{
                                 z-index: 2;
                             }
+                        }
+                        span.art-piece--readmore{
+                            z-index: 2;
+                            color: var(--color-primary-text);
+                            background-color: var(--color-primary-bg);
                         }
                     }
                     &:hover{
