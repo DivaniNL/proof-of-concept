@@ -258,3 +258,6 @@ body{
   border-style: dashed;
   outline: none;
 }
+@view-transition {
+    navigation: auto;
+}
