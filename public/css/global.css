@@ -252,9 +252,9 @@ body{
   }
 .button-secondary:focus{
   background-color: #FCF8F7;
-    background-color: var(--color-primary-bg);
-    color: #2C2926;
-    color: var(--color-secondary-bg);
-    border-style: dashed;
-    outline: none;
-  }
+  background-color: var(--color-primary-bg);
+  color: #2C2926;
+  color: var(--color-secondary-bg);
+  border-style: dashed;
+  outline: none;
+}

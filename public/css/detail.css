@@ -90,6 +90,30 @@ section {
     display: inline-flex;
     margin-bottom: 1.25rem;
     margin-bottom: var(--margin-size-m);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    &:before{
+        background-image: url('../assets/arrow-right.svg');
+        -webkit-transform: scale(-1, -1);
+        -moz-transform: scale(-1, -1);
+        -o-transform: scale(-1, -1);
+        transform: scale(-1, -1);
+        width: 20px;
+        position: relative;
+        left: 0;
+        content: '';
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 20px;
+    }
+    &:hover{
+        &:before{
+            filter: invert(71%) sepia(74%) saturate(533%) hue-rotate(309deg) brightness(100%) contrast(87%)
+
+        }
+    }
     span{
         margin-right: 5px;
     }

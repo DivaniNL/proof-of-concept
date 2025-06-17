@@ -7,10 +7,10 @@
             <h1 class="title-xl">Upload Kunstwerk</h1>
             <form data-enhanced="client-side-reaction" action="/upload" method="POST" enctype="multipart/form-data">
                 <label for="title">Geef je kunstwerk een titel</label>
-                <input type="text" name="title" id="title">
+                <input required type="text" name="title" id="title">
                 <label for="input-file">Upload afbeelding</label>
-                <input type="file" name="file" accept="image/*" id="input-file" class="input-file"/>
-                <button class="button-primary" type="submit">Submit</button>
+                <input required type="file" name="file" accept="image/*" id="input-file" class="input-file"/>
+                <button class="button-primary" type="submit">Verstuur</button>
             </form>
         </div>
     </main>
