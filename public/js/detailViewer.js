@@ -1,4 +1,6 @@
-
+function hasTouchSupport() {
+    return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+}
 if (typeof TSDViewer !== 'undefined') {
     if(TSDViewer){
         document.querySelector('#model-alt img').setAttribute('style','visibility: hidden;');
@@ -7,6 +9,7 @@ if (typeof TSDViewer !== 'undefined') {
         let paintingFullImg = document.querySelector('#model-alt img');
         var width = paintingFullImg.naturalWidth;
         var height = paintingFullImg.naturalHeight;
+        let zoomLvl;
         if (width > height){
             modelOrientation = 'hva-pictureframe3-horizontal' /* landscape */
         } else if (width < height){
@@ -17,9 +20,18 @@ if (typeof TSDViewer !== 'undefined') {
         if (height === undefined || width === undefined){
             modelOrientation = 'hva-pictureframe3-horizontal' /* fallback */
         }
+       
+        if (hasTouchSupport()) {
+            zoomLvl = 0.25;
+        }
+        else{
+            zoomLvl = 0.5;
+        }
         TSDViewer.create($aboutViewer, {
             forceLoad: true,
             model: modelOrientation,
+            cameraZoomLevel: zoomLvl,
+            cameraPosition: '0',
             plugins: 'customiser',
             onLoadComplete: () => {
                 $aboutViewer.setTexture({name: 'field1', source: document.querySelector('#model-alt img'), background: '#ff0000', scale: 'cover'}).then(() => { /* callback */ });
