@@ -10,8 +10,9 @@
                     alt="Headerafbeelding van kunststuk: {{artPiece.title}}" width="{{artPiece.headerImage.width}}"
                     height="{{artPiece.headerImage.height}}" fetchpriority="high" loading="eager"
                     style="view-transition-name: slider"
-                    >
+                >
             </figure>
+
             <section class="info-detail">
                 <a href="/" class="button-primary">Ga terug</a>
                 <h1 class="title-xl">{{artPiece.title}}</h1>
@@ -19,6 +20,7 @@
                     {{artPiece.description}}
                 </p>
             </section>
+
             <section class="model-detail">
                 <h2 class="title-l">Bekijk het kunststuk</h2>
                 <figure id="model-alt">
@@ -27,6 +29,7 @@
                 </figure>
                 <a class="button-secondary" target="_blank" href="{{artPiece.webImage.url}}">Download afbeelding</a>
             </section>
+            
             <section class="table-detail">
                 <h2 class="title-l">Eigenschappen</h2>
                 <table>
