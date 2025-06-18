@@ -66,6 +66,37 @@ Ik heb de Gestalt Principe Law of Proximity toegepast op dit ontwerp. door wat m
 
 ## Kenmerken
 
+### TSD Viewer
+In dit project wordt gebruik gemaakt van de TSD Viewer van 270-degrees(https://270degrees.io/)
+
+Met deze viewer heb ik op de detailpagina het schilderij in een 3D frame geplaatst.
+
+Hiervoor heb ik gebruik gemaakt van de volgende documentatieartikelen:
+
+**OnloadComplete** heb ik gebruikt om de viewer aan te spreken vadat deze is geinitialiseerd.
+
+https://docs.270degrees.nl/options/?h=onloadcomplete#onloadcomplete
+
+**setTexture** heb ik gebruikt om de achtergrond aan te passen.
+
+https://docs.270degrees.nl/plugins/customiser/methods/?h=settexture#settexture
+
+**setBackground** heb ik gebruikt om de achtergrondkleur aan te passen van de model
+
+https://docs.270degrees.nl/methods/?h=setbackgr#setbackground
+
+**cameraPosition** heb ik gebruikt om de beginpositie van de camera te bepalen.
+
+https://docs.270degrees.nl/options/?h=cameraposi#cameraposition
+
+**cameraZoomLevel** heb ik gebruikt om voor verschillende devices een ander start-zoom level te kiezen
+
+https://docs.270degrees.nl/options/?h=camerazoomlevel#camerazoomlevel
+
+In onderstaand bestand spreek ik de TSD viewer aan in mijn project:
+
+https://github.com/DivaniNL/proof-of-concept/blob/6b8d75b53021ad7a66dbd36fb8bf7aa51214332b/public/js/detailViewer.js#L1-L52
+
 ### NodeJS
 Met Node kan je server-side applicaties bouwen met JavaScript. In dit project wordt Node.js gebruikt om een webserver te draaien die de applicatie bedient.
 
@@ -73,7 +104,7 @@ Met Node kan je server-side applicaties bouwen met JavaScript. In dit project wo
 Express is een framework voor Node.js dat functies biedt voor het bouwen van sites. In dit project wordt Express gebruikt om routes te definiëren en HTTP-verzoeken(post en get) af te handelen.
 
 ### Liquid
-Liquid is een template engine voor JavaScript en Ruby. Het wordt gebruikt om HTML te genereren met dynamische data. In dit project wordt Liquid gebruikt om de HTML-pagina's te renderen met data die wordt opgehaald van de whois FDND API.
+Liquid is een template engine voor JavaScript en Ruby. Het wordt gebruikt om HTML te genereren met dynamische data. In dit project wordt Liquid gebruikt om de HTML-pagina's te renderen met data die wordt opgehaald van de Rijksmuseum API
 
 ### Projectstructuur
 Het project heeft de volgende structuur:
