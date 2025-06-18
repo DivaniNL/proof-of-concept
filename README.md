@@ -45,6 +45,27 @@ Upload:
 
 ## Ontwerpkeuzens
 
+
+NOG ERBIJ ZETTEN DA TIK DE PRE CSS DAY GRID HEB TOEGEPAST
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### Home
 
 Ik heb ervoor gekozen om, als scroll-snap wordt gesupport om de afbeeldingen in een frame te hangen. Ik heb hiervoor gekozen omdat de opdrachtgever geen simpel rijtje wilt zien met alle afbeeldingen en dat we wat leuks moesten bedenken.
