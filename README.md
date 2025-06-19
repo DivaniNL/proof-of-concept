@@ -43,34 +43,19 @@ Upload:
 
 <img src="https://github.com/user-attachments/assets/0dcc4172-adc6-42ca-aa60-73449ae47461" width="800"/>
 
-## Ontwerpkeuzens
-
-
-NOG ERBIJ ZETTEN DA TIK DE PRE CSS DAY GRID HEB TOEGEPAST
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+## Ontwerpkeuzes
 ### Home
 
 Ik heb ervoor gekozen om, als scroll-snap wordt gesupport om de afbeeldingen in een frame te hangen. Ik heb hiervoor gekozen omdat de opdrachtgever geen simpel rijtje wilt zien met alle afbeeldingen en dat we wat leuks moesten bedenken.
 
 ### Detailpagina
+
+Ik heb op mijn detailpagina gebruik gemaakt van de kennis die ik opgedaan heb gedurende de PRE-CSS day.
+Ik heb erover geschreven in mijn I love web:
+https://i-love-web-9kp8.onrender.com/journal/04%E2%80%9006%E2%80%902025 Onder Nils Binder.
+
+Op mijn detailpagina is het zelfde soort grid toegepast op de desktopversie van de introgedeelte
+
 
 Ik heb op mijn detailpagina twee Gestalt-principes toegepast. Hieronder licht ik toe welke ik waar heb toegepast en waarom.
 
